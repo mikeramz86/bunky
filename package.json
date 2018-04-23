@@ -1,0 +1,14 @@
+{
+  "name": "bunky",
+  "version": "1.0.0",
+  "description": "roomate app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Ramirez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

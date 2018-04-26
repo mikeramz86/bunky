@@ -56,7 +56,7 @@ function seedUserData() {
   return User.insertMany(seedData);
 }
 
-describe('regalia posts API resource', function () {
+describe('bunky posts API resource', function () {
 
   before(function () {
     return runServer(TEST_DATABASE_URL);
@@ -149,7 +149,7 @@ describe('regalia posts API resource', function () {
     //  2. make a DELETE request for that restaurant's id
     //  3. assert that response has right status code
     //  4. prove that restaurant with the id doesn't exist in db anymore
-    it('delete a regalia User by id', function() {
+    it('delete a bunky User by id', function() {
 
       let user;
 
@@ -179,7 +179,7 @@ describe('regalia posts API resource', function () {
               //  3. Prove updated user returned by request contains data we sent
               //  4. Prove user in db is correctly updated
                 const updateUser = {
-                  EmailAddress: 'test@regalia.com',
+                  EmailAddress: 'test@bunky.com',
                   FirstName: 'Tom',
                   LastName: 'Sawyer',
                   RentPayment: 1500

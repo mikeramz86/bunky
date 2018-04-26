@@ -25,6 +25,7 @@ userSchema.methods.serialize = function() {
     FirstName: this.FirstName,
     LastName: this.LastName,
     FullName: this.FullName,
+    withPlace: this.withPlace,
     numRoomates: this.numRoomates,
     budget: this.budget,
     culture: this.culture

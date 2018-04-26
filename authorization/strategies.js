@@ -15,7 +15,7 @@ const localStrategy = new LocalStrategy({usernameField: 'EmailAddress'}, (EmailA
         // Return a rejected promise so we break out of the chain of .thens.
         // Any errors like this will be handled in the catch block.
         return Promise.reject({
-          reason: 'LoginError',
+          reason: 'LogiqnError',
           message: 'Incorrect email address or password'
         });
       }

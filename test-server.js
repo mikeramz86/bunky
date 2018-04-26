@@ -48,8 +48,10 @@ function seedUserData() {
         EmailAddress: `${faker.name.firstName()}@asdf.com`,
         FirstName: faker.name.firstName(),
         LastName: faker.name.lastName(),
-        RentPayment: '1222',
-        password: 'asdf'
+        //withPlace: 'string',
+        //numRoomates: 'array',
+        //budget: 'array',
+        //culture: 'array'
     });
   }
   // this will return a promise
@@ -114,7 +116,10 @@ describe('bunky posts API resource', function () {
         FirstName: faker.name.firstName(),
         LastName: faker.name.lastName(),
         EmailAddress: `${faker.name.firstName()}@asdf.com`,
-        RentPayment: 1400
+        //withPlace: 'string',
+        //numRoomates: 'array',
+        //budget: 'array',
+        //culture: 'array'
       }
       return chai.request(app)
         .post('/users')
@@ -125,7 +130,7 @@ describe('bunky posts API resource', function () {
           console.log(res.body);
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys(
-            'id','FirstName','LastName','EmailAddress','numRoomates','budget','culture');
+            'id','FirstName','LastName','EmailAddress','withPlace','numRoomates','budget','culture');
           expect(res.body.EmailAddress).to.equal(newUser.EmailAddress);
           // cause Mongo should have created 4`id on insertion
           expect(res.body.id).should.not.be.null;
@@ -137,6 +142,7 @@ describe('bunky posts API resource', function () {
           expect(user.EmailAddress).to.equal(newUser.EmailAddress);
           expect(user.FirstName).to.equal(newUser.FirstName);
           expect(user.LastName).to.equal(newUser.LastName);
+          expect(user.withPlace).to.equal(newUser.withPlace)
           expect(user.numRoomates).to.equal(newUser.numRoomates);
           expect(user.budget).to.equal(newUser.budget);
           expect(user.culture).to.equal(newUser.culture);
@@ -182,7 +188,10 @@ describe('bunky posts API resource', function () {
                   EmailAddress: 'test@bunky.com',
                   FirstName: 'Tom',
                   LastName: 'Sawyer',
-                  RentPayment: 1500
+                  //withPlace: 'string',
+                  //numRoomates: 'array',
+                  //budget: 'array',
+                  //culture: 'array'
                 };
                 return User 
                   .findOne()
@@ -203,6 +212,7 @@ describe('bunky posts API resource', function () {
                     expect(user.EmailAddress).to.equal(updateUser.EmailAddress);
                     expect(user.FirstName).to.equal(updateUser.FirstName);
                     expect(user.LastName).to.equal(updateUser.LastName);
+                    expect(user.withPlace).to.equal(newUser.withPlace)
                     expect(user.numRoomates).to.equal(newUser.numRoomates);
                     expect(user.budget).to.equal(newUser.budget);
                     expect(user.culture).to.equal(newUser.culture);

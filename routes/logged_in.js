@@ -67,7 +67,7 @@ router.put('/for_tests/:id', (req, res) =>{
         // if the user sent over any of the updatableFields, we udpate those values
         // in document
         const toUpdate = {};
-        const updateableFields = ['EmailAddress', 'FirstName', 'LastName', 'RentPayment','numRoomates','budget','culture'];
+        const updateableFields = ['EmailAddress', 'FirstName', 'LastName', 'withPlace','numRoomates','budget','culture'];
       
         updateableFields.forEach(field => {
           if (field in req.body) {

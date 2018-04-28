@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
   password: {type: String,required: true},
   FirstName: {type: String, required: true},
   LastName: {type: String, required: true},
-  withPlace: {type: String, required: true},
+  // withPlace: {type: String, required: true},
   numRoomates: {type: String, required: true},
   budget: {type: String, required: true},
   culture: {type: String, required: true}
@@ -26,7 +26,7 @@ userSchema.methods.serialize = function() {
     FirstName: this.FirstName,
     LastName: this.LastName,
     FullName: this.FullName,
-    withPlace: this.withPlace,
+    // withPlace: this.withPlace,
     numRoomates: this.numRoomates,
     budget: this.budget,
     culture: this.culture

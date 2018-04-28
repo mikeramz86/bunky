@@ -27,7 +27,8 @@ router.get('/for_tests',(req, res) => {
   }
 });
 router.post('/', jsonParser, (req, res) => {
-  const requiredFields = [ 'password', 'FirstName', 'LastName', 'EmailAddress' ];
+  //add fields
+  const requiredFields = [ 'password', 'FirstName', 'LastName', 'EmailAddress', 'withPlace', 'numRoomates', 'budget', 'culture' ];
   const missingField = requiredFields.find(field => !(field in req.body));
   if (missingField) {
     console.log('missing entity field')
@@ -39,7 +40,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 //check to see if datatypes are correct
-  const stringFields = [ 'password', 'FirstName', 'LastName', 'EmailAddress'];
+  const stringFields = [ 'password', 'FirstName', 'LastName', 'EmailAddress', 'withPlace', 'numRoomates', 'budget', 'culture'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -96,7 +97,8 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  let {password, FirstName = '', LastName = '', EmailAddress , RentPayment} = req.body;
+  let {password, FirstName = '', LastName = '', EmailAddress , } = req.body;
+  //PROBLEM! Missing certain things
   // Username and password come in pre-trimmed, otherwise we throw an error
   // before this
   FirstName = FirstName.trim();
@@ -125,7 +127,7 @@ router.post('/', jsonParser, (req, res) => {
         password: hash,
         FirstName,
         LastName,
-        RentPayment
+        //add other fields
       });
     })
     .then(user => {

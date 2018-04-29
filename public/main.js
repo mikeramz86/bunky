@@ -1,7 +1,7 @@
 
 
 
-const NEWS_SEARCH_URL = '--';
+const SEARCH_URL = '--';
 
 /* ---------------------------------------get Data from API-------------------------------------------- */
 function getDataFromApi(searchTerm, callback) {
@@ -49,11 +49,8 @@ function watchSubmit() {
         const query = queryTarget.val();
         // clear out the input
         queryTarget.val("");
-        getDataFromApi(query, displayNewsData);
+        getDataFromApi(query, displayData);
     });
-    getSunDataFromAPI(displaySunData);
-    getDesignDataFromAPI(displayQuoteData);
-
 }
 
 $(watchSubmit);

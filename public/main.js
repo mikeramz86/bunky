@@ -22,19 +22,24 @@ function getDataFromApi(searchTerm, callback) {
 function renderResult(result) {
     return `
             <div class="result"> 
-                <a href="${result.webUrl}" target="_blank">${result.webTitle}</a>
+                <div>${result.FirstName}</div>
+                <div>${result.LastName}</div>
+                <div>${result.EmailAddress}</div>
+                <div>${result.budget}</div>
+                <div>${result.numRoomates}</div>
             </div>
-            `;
+            `
+};
 
-}
+
 
 
 
 /* ---------------------------------------DISPLAY DATA-------------------------------------------- */
 
-function displayNewsData(data) {
+function displayData(data) {
     const showResults = data.response.results.map((item, index) => renderResult(item));
-    $('.js-news').html(showResults);
+    $('.js-results').html(showResults);
 }
 
 

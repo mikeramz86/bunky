@@ -126,12 +126,12 @@ describe('bunky posts API resource', function () {
           console.log(res.body);
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys(
-            'id', 'FirstName', 'LastName', 'EmailAddress', 'withPlace', 'numRoomates', 'budget', 'culture');
+            'id', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture');
           expect(res.body.EmailAddress).to.equal(newUser.EmailAddress);
           // cause Mongo should have created 4`id on insertion
           expect(res.body.id).should.not.be.null;
           //updateed 4/27- updated with withplace numroomates budget and culture
-          expect(res.body.withPlace).to.equal(newUser.withPlace);
+          // expect(res.body.withPlace).to.equal(newUser.withPlace);
           expect(res.body.numRoomates).to.equal(newUser.numRoomates);
           expect(res.body.budget).to.equal(newUser.budget);
           expect(res.body.culture).to.equal(newUser.culture);
@@ -142,7 +142,7 @@ describe('bunky posts API resource', function () {
           expect(user.EmailAddress).to.equal(newUser.EmailAddress);
           expect(user.FirstName).to.equal(newUser.FirstName);
           expect(user.LastName).to.equal(newUser.LastName);
-          expect(user.withPlace).to.equal(newUser.withPlace)
+          // expect(user.withPlace).to.equal(newUser.withPlace)
           expect(user.numRoomates).to.equal(newUser.numRoomates);
           expect(user.budget).to.equal(newUser.budget);
           expect(user.culture).to.equal(newUser.culture);
@@ -190,7 +190,7 @@ describe('bunky posts API resource', function () {
         EmailAddress: 'mikeramzdesign@gmail.com',
         FirstName: 'Tom',
         LastName: 'Sawyer',
-        withPlace: 'Yes',
+        // withPlace: 'Yes',
         numRoomates: '2',
         budget: '1600+',
         culture: 'Private'
@@ -214,7 +214,7 @@ describe('bunky posts API resource', function () {
           expect(user.EmailAddress).to.equal(updateUser.EmailAddress);
           expect(user.FirstName).to.equal(updateUser.FirstName);
           expect(user.LastName).to.equal(updateUser.LastName);
-          expect(user.withPlace).to.equal(updateUser.withPlace)
+          // expect(user.withPlace).to.equal(updateUser.withPlace)
           expect(user.numRoomates).to.equal(updateUser.numRoomates);
           expect(user.budget).to.equal(updateUser.budget);
           expect(user.culture).to.equal(updateUser.culture);

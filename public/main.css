@@ -27,9 +27,29 @@ header {
 }
 
 main {
-    position: relative;
-    background-color: white;
-    background-image: url("twochairs.jpg")
+    /* position: relative; */
+    /* background-color: white; */
+    /* background-image: url("./imgs/twochairs.jpg") */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.chair {
+    position: fixed;
+    display: inline;
+    margin-top: 50px;
+    width: 50%;
+}
+
+.Homebox {
+    /* position: fixed; */
+    display: inline;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    margin-top: 50px;
+    right: 0;
+
 }
 
 a:link {

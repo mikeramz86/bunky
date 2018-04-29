@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title></title>
-    <link rel="sylesheet" type="text/css" href="main.css">
+    <!-- <link rel="sylesheet" type="text/css" href="main.css"> -->
+
     <link rel="sylesheet" type="text/css" href="resp-grid.css">
+    <link rel="sylesheet" type="text/css" href="signup.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
-    <header role="banner"></header>
+    <header role="banner">
+        <h1>bunky</h1>
+        <div class="menu">
+            <a href="signup.html">Sign up</a>
+            <a href="login.html">Log In</a>  
+        </div>    
+    </header>
+
     <main role="main">
         <form>
-            First name:<br>
-            <input type="text" name="firstname"><br>
-            Last name:<br>
-            <input type="text" name="lastname">
-            Email:<br>
-            <input type="text" name="email">
+            <form class="as-form" action="/signup" method='post'>
+                <fieldset name="Signup">
+                    <legend class="Sign-up">Signup</legend>
 
-            Budget:<br>
-            <input type="radio" name="budget" value="$1 - $500"> $1 - $500<br>
-            <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000<br>
-            <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500<br>
-            <input type="radio" name="budget" value="$1 - $500"> $1600+<br>
-            Roomates:<br>
-            <input type="radio" name="Roomate" value="1"> 1<br>
-            <input type="radio" name="Roomate" value="2"> Less than 2<br>
-            <input type="radio" name="Roomate" value="3"> Less than 3<br>
-            <input type="radio" name="Roomate" value="3+"> 3+<br>
-            Culture:<br>
-            <input type="radio" name="Culture" value="1"> Communal<br>
-            <input type="radio" name="Culture" value="2"> Private<br>
-            Submit:<br>
-            <input type="submit" value="Submit">
-          </form>
-        <p>starting mock data</p>
+                    <label for="name" required>First Name</label>
+                    <input type="name" name='First Name' id='FirstName' placeholder="John" />
+
+                    <label for="name" required>Last Name</label>
+                    <input type="name" name='Last Name' id='LastName' placeholder="Doe" />
+
+                    <label for="email" required>Email</label>
+                    <input type="email" name='email' id='email' placeholder="you@email.com" />
+
+                    <label for="password" required>Password</label>
+                    <input type='password' name='psw' placeholder="password1234" required />
+
+                    <label for="budget" required>Budget</label>
+                    <input type="radio" name="budget" value="$1 - $500"> $1 - $500<br>
+                    <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000<br>
+                    <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500<br>
+                    <input type="radio" name="budget" value="$1 - $500"> $1600+<br>
+
+                    <label for="roomates" required>Roomates</label>
+                    <input type="radio" name="Roomate" value="1"> 1<br>
+                    <input type="radio" name="Roomate" value="2"> Less than 2<br>
+                    <input type="radio" name="Roomate" value="3"> Less than 3<br>
+                    <input type="radio" name="Roomate" value="3+"> 3+<br>
+
+                    <label for="Culture" required>Culture</label>
+                    <input type="radio" name="Culture" value="1"> Communal<br>
+                    <input type="radio" name="Culture" value="2"> Private<br>
+                    <button type="submit">Sign Up</button>
+                </fieldset>
+            </form>
     </main>
     <footer role="contentinfo"></footer>
     <script type="text/javascript" src="index.js"></script>
 </body>
+
 </html>

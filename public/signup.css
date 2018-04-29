@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Fredoka One;
+ 
+
+  }
+  
+header {
+    background-color: #1F9BA6;
+    color: white;
+    position: fixed;
+    height: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px; 
+}
+
+.menu {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    margin-right: 15px;
+    padding: 10px;
+}
+  
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  
+  .as-form {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+    padding: 40px;
+    color: black;
+    background-color: white;
+    border-radius: 2px;
+  }
+  
+  .as-form legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #565656;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 auto 45px;
+  }
+  
+  .as-form input {
+    display: block;
+    width: 320px;
+    height: auto;
+    font-size: 18px;
+    text-align: left;
+    padding: 15px;
+    border: 2px solid grey;
+    border-radius: 3px;
+    background: white;
+    margin: 10px auto 20px;
+  }
+  
+  .as-form button {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    padding: 15px;
+    background-color: rgb(0, 179, 89);
+    color: white;
+    font-size: 35px;
+  }
+  
+  .as-form button:hover {
+    background-color: rgb(0, 128, 64);
+  }
+  
+  .footer {
+    text-align: center;
+    color: white;
+    margin: 20px auto;
+    border: 0;
+    padding: 0;
+  }
+  
+  .footer a {
+    color: white;
+  }
+  
+  .footer a:hover {
+    color: grey; 
+  }

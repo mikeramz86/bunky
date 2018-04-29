@@ -2,26 +2,28 @@
 <html lang="en">
 
 <head>
-    <title></title>
-    <!-- <link rel="sylesheet" type="text/css" href="main.css"> -->
-
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <title>bunky: a place to meet your roomate</title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
     <link rel="sylesheet" type="text/css" href="resp-grid.css">
-    <link rel="sylesheet" type="text/css" href="signup.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header role="banner">
+    <!-- <header role="banner">
         <h1>bunky</h1>
         <div class="menu">
             <a href="signup.html">Sign up</a>
             <a href="login.html">Log In</a>  
         </div>    
-    </header>
+    </header> -->
 
-    <main role="main">
+    <main role="main" class="test">
         <form>
-            <form class="as-form" action="/signup" method='post'>
+            <form class="as-form" action="insert sign up" method='post'>
                 <fieldset name="Signup">
                     <legend class="Sign-up">Signup</legend>
 
@@ -38,25 +40,32 @@
                     <input type='password' name='psw' placeholder="password1234" required />
 
                     <label for="budget" required>Budget</label>
-                    <input type="radio" name="budget" value="$1 - $500"> $1 - $500<br>
-                    <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000<br>
-                    <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500<br>
-                    <input type="radio" name="budget" value="$1 - $500"> $1600+<br>
+                    <input type="radio" name="budget" value="$1 - $500"> $1 - $500
+                    <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000
+                    <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500
+                    <input type="radio" name="budget" value="$1 - $500"> $1600+
+
 
                     <label for="roomates" required>Roomates</label>
-                    <input type="radio" name="Roomate" value="1"> 1<br>
-                    <input type="radio" name="Roomate" value="2"> Less than 2<br>
-                    <input type="radio" name="Roomate" value="3"> Less than 3<br>
-                    <input type="radio" name="Roomate" value="3+"> 3+<br>
+                    <input type="radio" name="Roomate" value="1"> 1
+                    <input type="radio" name="Roomate" value="2"> Less than 2
+                    <input type="radio" name="Roomate" value="3"> Less than 3
+                    <input type="radio" name="Roomate" value="3+"> 3+
+
 
                     <label for="Culture" required>Culture</label>
-                    <input type="radio" name="Culture" value="1"> Communal<br>
-                    <input type="radio" name="Culture" value="2"> Private<br>
+                    <input type="radio" name="Culture" value="1"> Communal
+                    <input type="radio" name="Culture" value="2"> Private
+
                     <button type="submit">Sign Up</button>
                 </fieldset>
             </form>
     </main>
-    <footer role="contentinfo"></footer>
+    <footer role="contentinfo" class="footer">
+        <p>Already have an account?
+            <a href="/login">Log in</a>
+        </p>
+    </footer>
     <script type="text/javascript" src="index.js"></script>
 </body>
 

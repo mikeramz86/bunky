@@ -49,8 +49,40 @@ main {
     height: 600px; 
 }
 
+.js-results {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 963;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result {
+    border: 2px solid grey;
+    padding: 15px;
+    margin: 10px;
+    width: 154;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 a:link {
     color: white;
     text-decoration: none;
+
   }
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+footer {
+    background-color: grey;
+    padding-top: 50px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 

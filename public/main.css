@@ -10,7 +10,8 @@
 header {
     background-color: #1F9BA6;
     color: white;
-    position: fixed;
+    display: block;
+    /* position: fixed; */
     height: 50px;
     top: 0;
     left: 0;
@@ -29,20 +30,24 @@ header {
 main {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 
 .couches {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+
     height: 600px; 
+    position: relative;
 }
 
 .Homebox {
     width: 50%;
+    position: relative;
     text-align: center;
-    margin-top: 75px;
+    /* margin-top: 75px; */
     height: 600px;
-    display: block;
+    /* display: block; */
 }
 
 .homebtn {
@@ -60,14 +65,14 @@ main {
 }
 
 .chair {
-    width: 750px;
-    height: 600px; 
+    /* width: 700px; */
+    height: 600px;  
 }
 
 .livingroom {
-    display: block;
-    margin-top: 70px;
-    height: 400px;
+    /* display: block; */
+    margin-top: 10px;
+    /* height: 400px; */
     margin-left: auto;
     margin-right: auto;
 }

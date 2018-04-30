@@ -31,7 +31,7 @@ function getUsers(callback) {
 /* ---------------------------------------RENDER RESULTS-------------------------------------------- */
 function renderResult(result) {
     return `
-            <div class="result"> 
+            <div class="result .col-3"> 
                 <div class="name">
                     <div>${result.FirstName} ${result.LastName}</div>
                 </div>

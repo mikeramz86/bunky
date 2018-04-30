@@ -36,7 +36,6 @@ main {
 
 .chair {
     position: fixed;
-    display: inline;
     margin-top: 50px;
     width: 50%;
     height: 600px;
@@ -48,7 +47,7 @@ main {
     align-items: center;
     text-align: center;
     display: flex;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     right: 0;
 
 }

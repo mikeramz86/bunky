@@ -11,7 +11,7 @@ header {
     background-color: #1F9BA6;
     color: white;
     display: block;
-    /* position: fixed; */
+    position: fixed;
     height: 50px;
     top: 0;
     left: 0;
@@ -31,6 +31,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 50px;
 }
 
 
@@ -108,8 +109,9 @@ a, a:visited, a:hover, a:active {
 
 hr.style6 {
 	/* background-color: #fff; */
-    border-top: 5px dotted black;
-    margin: 10px;
+    border-bottom: 5px dotted black;
+    margin: 50px;
+    position: relative;
 }
 
 .name {

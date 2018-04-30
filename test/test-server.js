@@ -15,7 +15,7 @@ const expect = chai.expect;
 const { User } = require('../models/users');
 const { closeServer, runServer, app } = require('../server');
 const { TEST_DATABASE_URL } = require('../config');
-console.log(TEST_DATABASE_URL)
+// console.log(TEST_DATABASE_URL)
 
 chai.use(chaiHttp);
 
@@ -41,6 +41,7 @@ function seedUserData() {
   for (let i = 1; i <= 10; i++) {
     seedData.push({
       password: 'asssdf',
+      username: 'mink76',
       EmailAddress: `${faker.name.firstName()}@asdf.com`,
       FirstName: faker.name.firstName(),
       LastName: faker.name.lastName(),
@@ -108,7 +109,8 @@ describe('bunky posts API resource', function () {
       //    3. prove the new user was created
       let res;
       let newUser = {
-        password: 'asdfjkl',
+        password: 'asdfj78900kl',
+        username: 'mink67',
         FirstName: faker.name.firstName(),
         LastName: faker.name.lastName(),
         EmailAddress: `${faker.name.firstName()}@asdf.com`,
@@ -122,27 +124,28 @@ describe('bunky posts API resource', function () {
         .send(newUser)
         .then(_res => {
           res = _res;
+          console.log(res);
           expect(res).to.have.status(201);
-          console.log(res.body);
+          // console.log(res.body);
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys(
-            'id', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture');
+            'id', 'username', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture');
           expect(res.body.EmailAddress).to.equal(newUser.EmailAddress);
           // cause Mongo should have created 4`id on insertion
           expect(res.body.id).should.not.be.null;
           //updateed 4/27- updated with withplace numroomates budget and culture
-          // expect(res.body.withPlace).to.equal(newUser.withPlace);
+          expect(res.body.username).to.equal(newUser.username);
           expect(res.body.numRoomates).to.equal(newUser.numRoomates);
           expect(res.body.budget).to.equal(newUser.budget);
           expect(res.body.culture).to.equal(newUser.culture);
-          console.log('this is the res+', res.body);
+          // console.log('this is the res+', res.body);
           return User.findById(res.body.id);
         })
         .then(user => {
           expect(user.EmailAddress).to.equal(newUser.EmailAddress);
           expect(user.FirstName).to.equal(newUser.FirstName);
           expect(user.LastName).to.equal(newUser.LastName);
-          // expect(user.withPlace).to.equal(newUser.withPlace)
+          expect(user.username).to.equal(newUser.username);
           expect(user.numRoomates).to.equal(newUser.numRoomates);
           expect(user.budget).to.equal(newUser.budget);
           expect(user.culture).to.equal(newUser.culture);
@@ -190,7 +193,7 @@ describe('bunky posts API resource', function () {
         EmailAddress: 'mikeramzdesign@gmail.com',
         FirstName: 'Tom',
         LastName: 'Sawyer',
-        // withPlace: 'Yes',
+        username: 'mink675',
         numRoomates: '2',
         budget: '1600+',
         culture: 'Private'
@@ -199,22 +202,26 @@ describe('bunky posts API resource', function () {
         .findOne()
         .then(function (randomUser) {
           updateUser.id = randomUser.id;
-          console.log(updateUser.id, randomUser.id);
+          // console.log(updateUser.id, randomUser.id);
           // make request then inspect it to make sure it reflects
           // data we sent
+          // console.log(randomUser);
           return chai.request(app)
             .put(`/logged_in/for_tests/${randomUser.id}`)
             .send(updateUser);
         })
         .then(function (res) {
           expect(res).to.have.status(204);
+          // console.log(User.findById(updateUser.id));
           return User.findById(updateUser.id);
         })
         .then(function (user) {
+          // console.log(user);
+          // console.log(updateUser);
           expect(user.EmailAddress).to.equal(updateUser.EmailAddress);
           expect(user.FirstName).to.equal(updateUser.FirstName);
           expect(user.LastName).to.equal(updateUser.LastName);
-          // expect(user.withPlace).to.equal(updateUser.withPlace)
+          expect(user.username).to.equal(updateUser.username)
           expect(user.numRoomates).to.equal(updateUser.numRoomates);
           expect(user.budget).to.equal(updateUser.budget);
           expect(user.culture).to.equal(updateUser.culture);

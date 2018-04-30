@@ -1,212 +1,121 @@
-//check out MOlly's code 
-//put delete update
-// get would probably be
+router.post('/', jsonParser, (req, res) => {
+  // add fields
+  //   const requiredFields = [ 'password', 'FirstName', 'LastName', 'EmailAddress','numRoomates', 'budget', 'culture' ];
+  //   const missingField = requiredFields.find(field => !(field in req.body));
+  //   if (missingField) {
+  //     console.log('missing entity field')
+  //     return res.status(422).json({
+  //       code: 422,
+  //       reason: 'ValidationError',
+  //       message: 'Missing field',
+  //       location: missingField
+  //     });
+  //   }
+  // //check to see if datatypes are correct
+  //   const stringFields = [ 'password', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture'];
+  //   const nonStringField = stringFields.find(
+  //     field => field in req.body && typeof req.body[field] !== 'string'
+  //   );
+  //   if (nonStringField) {
+  //     console.log('missing nonstring entity field')
+  //     return res.status(422).json({
+  //       code: 422,
+  //       reason: 'ValidationError',
+  //       message: 'Incorrect field type: expected string',
+  //       location: nonStringField
+  //     });
+  //   }
+  //   const explicityTrimmedFields = ['password'];
+  //   const nonTrimmedField = explicityTrimmedFields.find(
+  //     field => req.body[field].trim() !== req.body[field]
+  //   );
+  //   if (nonTrimmedField) {
+  //     return res.status(422).json({
+  //       code: 422,
+  //       reason: 'ValidationError',
+  //       message: 'Cannot start or end with whitespace',
+  //       location: nonTrimmedField
+  //     });
+  //   }
 
-"use strict";
+  //   const sizedFields = {
+  //     password: {
+  //       min: 6,
+  //       max: 20
+  //     }
+  //   };
+  //   //making sure psword is correct length
+  //   const tooSmallField = Object.keys(sizedFields).find(
+  //     field =>
+  //       'min' in sizedFields[field] &&
+  //             req.body[field].trim().length < sizedFields[field].min
+  //   );
+  //   const tooLargeField = Object.keys(sizedFields).find(
+  //     field =>
+  //       'max' in sizedFields[field] &&
+  //             req.body[field].trim().length > sizedFields[field].max
+  //   );
 
-//this file contains functions that allow users to retrieve, create, update, and delete data from the REST API (or allow demo users to interact with the sample data)
+  //   if (tooSmallField || tooLargeField) {
+  //     return res.status(422).json({
+  //       code: 422,
+  //       reason: 'ValidationError',
+  //       message: tooSmallField
+  //         ? `Must be at least ${sizedFields[tooSmallField]
+  //           .min} characters long`
+  //         : `Must be at most ${sizedFields[tooLargeField]
+  //           .max} characters long`,
+  //       location: tooSmallField || tooLargeField
+  //     });
+  //   }
 
-//id to increment for demo data array. Registered users interact with the REST API and save their data to the database, while demo account users see how the app behaves with an array of pre-loaded data. They may add, update, and delete data from the array, but their changes will not be saved when the page reloads
-let demoId = 19;
-let isDemo = false;
+  //   let {password, FirstName = '', LastName = '', EmailAddress , } = req.body;
+  //   //PROBLEM! Missing certain things
+  //   // Username and password come in pre-trimmed, otherwise we throw an error
+  //   // before this
+  //   FirstName = FirstName.trim();
+  //   LastName = LastName.trim();
+  //   EmailAddress = EmailAddress.trim();
+  //   password = password.trim();
 
-function getSmells(callback) {
-  //if demo account, get data from sample data array
-  if (isDemo) {
-    displayMapData(MOCK_SMELLS.mySmells);
-    //if authenticated user, get all their data from API
-  } else {
-    const url = "/smells";
-    $.getJSON(url, callback);
-  }
-}
+  //   return User.find({EmailAddress})
+  //     .count()
+  //     .then(count => {
+  //       if (count > 0) {
+  //         // There is an existing user with the same username
+  //         return Promise.reject({
+  //           code: 422,
+  //           reason: 'ValidationError',
+  //           message: 'Email Address already taken',
+  //           location: 'EmailAddress'
+  //         });
+  //       }
+  //       // If there is no existing user, hash the password
+  //       return User.hashPassword(password);
+  //     })
+  //     .then(hash => {
+  User.create({
+    EmailAddress: req.body.EmailAddress,
+    password: req.body.password,
+    FirstName: req.body.FirstName,
+    LastName: req.body.LastName,
+    budget: req.body.budget,
+    numRoomates: req.body.numRoomates,
+    culture: req.body.culture
+    // });
+  })
 
-//listen for when smell form is submitted
-function listenNewSmell() {
-  $(".smell-form").on("submit", event => {
-    event.preventDefault();
-    //check if title input is white space and warn if so
-    if ($.trim($(".smell-title").val()) == "") {
-      alert("Title is blank");
-    } else {
-      //record position of the smell as the center of the map
-      let mapCenter = map.getCenter();
-      let smellPosition = {
-        lat: mapCenter.lat(),
-        lng: mapCenter.lng()
-      };
+    .then(user => {
+      return res.status(201).json(user.serialize());
+    })
 
-      const smellData = {
-        id: $(".id-input").val(),
-        title: $(".smell-title").val(),
-        description: $(".smell-description").val(),
-        category: $("input[name=category]:checked", "#smellsubmit").val(),
-        smellLocation: smellPosition
-      };
-
-      if (isDemo) {
-        //if demo account AND the data is being updated
-        if (smellData.id) {
-          smellData.publishedAt = moment(new Date()).format(
-            "dddd, MMMM Do YYYY, h:mm:ss a"
-          );
-          updateSmellWindow(smellData);
-          updateDataInArray(smellData);
-          //if demo account and the data is new
-        } else {
-          const smellData = {
-            id: demoId++,
-            title: $(".smell-title").val(),
-            description: $(".smell-description").val(),
-            category: $("input[name=category]:checked", "#smellsubmit").val(),
-            publishedAt: moment(new Date()).format(
-              "dddd, MMMM Do YYYY, h:mm:ss a"
-            ),
-            smellLocation: smellPosition
-          };
-          setNewMarker(smellData);
-          MOCK_SMELLS.mySmells.push(smellData);
-        }
-      } else {
-        //if user account and the data already has an id, make PUT request to update
-        if (smellData.id) {
-          putSmell(smellData);
-          //if user account and the data is new, make POST request to create
-        } else {
-          postSmell(smellData);
-        }
+    .catch(err => {
+      // Forward validation errors on to the client, otherwise give a 500
+      // error because something unexpected has happened
+      console.log('here2', err)
+      if (err.reason === 'ValidationError') {
+        return res.status(err.code).json(err);
       }
-      //after request is submitted, hide the form, the map center bullseye, and re-enable the button to create more data
-      hideForm();
-      hideBullseye();
-      document.getElementById("showform").disabled = false;
-    }
-  });
-}
-
-//makes POST request to add or update data in the database
-function postSmell(newSmellData) {
-  $.ajax({
-    url: "/smells",
-    method: "POST",
-    data: JSON.stringify(newSmellData),
-    crossDomain: true,
-    contentType: "application/json",
-    success: setNewMarker
-  });
-}
-
-//listens for when "Edit Smell" is clicked
-function listenEdit(smellId) {
-  document.getElementById("showform").disabled = true;
-  if (isDemo) {
-    //if demo, find the correct smell object in the array and pass to formRepop
-    let currentSmell = findIndexArray(smellId);
-    formRepop(currentSmell);
-  } else {
-    //if user account, call getSmellById with that Id
-    getSmellById(smellId);
-  }
-}
-
-function findIndexArray(someId) {
-  return MOCK_SMELLS.mySmells.find(element => {
-    //return object with that id
-    return element.id == someId;
-  });
-}
-
-//get smell data with specific ID from database
-function getSmellById(id) {
-  const url = `/smells/${id}`;
-  $.getJSON(url, formRepop);
-}
-
-//makes put reqest with updated data
-function putSmell(updatedSmellData) {
-  const id = updatedSmellData.id;
-  $.ajax({
-    url: `/smells/${id}`,
-    method: "PUT",
-    data: JSON.stringify(updatedSmellData),
-    crossDomain: true,
-    contentType: "application/json",
-    //on success, call updatedSmellWindow to update text in DOM
-    success: response => {
-      updateSmellWindow(response);
-    }
-  });
-}
-
-//repopulates smell form with data for that smell
-function formRepop(response) {
-  const smellTitle = response.title;
-  const smellDescription = response.description;
-  const smellCategory = response.category;
-  const smellId = response.id;
-  showForm();
-  $(".smell-title").val(smellTitle);
-  $(".smell-description").val(smellDescription);
-  $(".id-input").val(smellId);
-  document.forms["smellsubmit"][smellCategory].checked = true;
-}
-
-//if demo, update data in array
-function updateDataInArray(updatedSmellData) {
-  let dataId = updatedSmellData.id;
-  let dataPosition = parseInt(dataId) - 1;
-  let dataToUpdate = findIndexArray(dataId);
-  MOCK_SMELLS.mySmells.splice(dataPosition, 1, updatedSmellData);
-}
-
-//update infowindow with updated smell data
-function updateSmellWindow(data) {
-  let smellId;
-  let smellCreated;
-  if (isDemo) {
-    smellId = data.id;
-    smellCreated = moment(new Date()).format("dddd, MMMM Do YYYY, h:mm:ss a");
-  } else {
-    smellId = data._id;
-    smellCreated = moment(data.publishedAt).format(
-      "dddd, MMMM Do YYYY, h:mm:ss a"
-    );
-  }
-  let smellTitle = data.title;
-  let smellDescription = data.description;
-  let smellCategory = data.category;
-  let smellPosition = data.smellLocation;
-
-  let smellText = `
-        <h3 class="smell-title">${smellTitle}</h3>
-        <p>${smellDescription}</p>
-        <p class="smelltext-category"><i>${smellCategory}</i></p>
-        <p>${smellCreated}</p>
-        <button onclick="listenEdit('${smellId}')"
-class="edit-smell">Edit Smell</button>
-        <button onclick="listenDelete('${smellId}')"
-class="delete-smell">Delete Smell</button>
-        `;
-  document.getElementById("content-" + smellId).innerHTML = smellText;
-}
-
-// listen for when user clicks "Delete Smell" and makes DELETE request
-function listenDelete(smellId) {
-  hideForm();
-  hideBullseye();
-  if (isDemo) {
-    //if demo, remove data object from array
-    MOCK_SMELLS.mySmells.splice(parseInt(smellId) - 1, 1);
-    //re-initiate the map
-    initMap();
-  } else {
-    //if user account, make DELETE request and re-initiate the map
-    $.ajax({
-      url: `/smells/${smellId}`,
-      method: "DELETE",
-      crossDomain: true,
-      contentType: "application/json",
-      success: initMap
+      res.status(500).json({ code: 500, message: 'Internal server error' });
     });
-  }
-}
+});

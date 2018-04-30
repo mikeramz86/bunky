@@ -38,6 +38,8 @@ app.use('/api/auth/', authRouter);
 app.use('/users', users);
 app.use('/logged_in', logged_in);
 
+const jwtAuth = passport.authenticate('jwt', { session: false });
+
 //main place to find profiles
 app.use('/bunky', bunkyTotal);
 

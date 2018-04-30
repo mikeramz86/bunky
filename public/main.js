@@ -13,57 +13,74 @@ function getUsers(callback) {
 }
 
 /* ---------------------------------------CREATE ACCOUnt-------------------------------------------- */
-
+function postUsers(userobj, callback) {
+    const settings = {
+        url: API_URL,
+        // data: {
+        //     password: `${password}`,
+        //     username: `${username}`,
+        //     FirstName: `${FirstName}`,
+        //     LastName: `${EmailAddress}`,
+        //     EmailAddress: `${withPlace}`,
+        //     numRoomates: `${numRoomates}`,
+        //     budget: `${budget}`,
+        //     culture: `${culture}`
+        // },
+        data: userObj,
+        dataType: 'json',
+        type: 'POST',
+        success: callback
+    };
+    $.ajax(settings);
+}
 
 
 /* ---------------------------------------DELETE------------------------------------------- */
 
-$('#permanent-delete-account').click(function(){
+$('#permanent-delete-account').click(function () {
     $.ajax({
         url: API_URL,
-        data: {EmailAddress},
-        headers: { 'authorization': `Bearer ${token}`},
+        data: { EmailAddress },
+        headers: { 'authorization': `Bearer ${token}` },
         dataType: 'json',
-        success: function(result) 
-        { 
+        success: function (result) {
             //then return to index.html
             window.location.href = `/index.html?delete=true`
             //doesn't display on index.html
-            $(".delete-alert-danger2").text(result.message) 	
+            $(".delete-alert-danger2").text(result.message)
         },
-        error: function(){
+        error: function () {
             $(".problem").css('display', 'block')
             console.log('error')
         }
-    });		
+    });
 })
 
 /* ---------------------------------------UPDATE-------------------------------------------- */
-$('.update-account').click(function(e){
+$('.update-account').click(function (e) {
     e.preventDefault();
     let obj = {
-        EmailAddress:$('#inputEmail3').val().trim(),
-        FirstName:$('#inputFirstName3').val().trim(),
-        LastName:$('#inputLastName3').val().trim(),
-        RentPayment:$('#inputRentPayment3').val().trim()
+        EmailAddress: $('#inputEmail3').val().trim(),
+        FirstName: $('#inputFirstName3').val().trim(),
+        LastName: $('#inputLastName3').val().trim(),
+        RentPayment: $('#inputRentPayment3').val().trim()
     };
     $.ajax({
         url: API_URL,
-        type: 'PUT', 
+        type: 'PUT',
         data: obj,
-        headers: { 'authorization': `Bearer ${token}`},
+        headers: { 'authorization': `Bearer ${token}` },
         dataType: 'json',
-        success: function(result) 
-        { 
+        success: function (result) {
             console.log('success = ', result);
             $('#inputFirstName3').val(result.FirstName);
-               $('#inputLastName3').val(result.LastName);
+            $('#inputLastName3').val(result.LastName);
             $('#inputbudget3').val(result.budget);
             $('#inputnumRoommates3').val(result.numRoomates);
             $('#inputculturet3').val(result.cultre);
-            $('.update-alert-success').css('display','block').text("Your account has been updated!");
+            $('.update-alert-success').css('display', 'block').text("Your account has been updated!");
         },
-        error: function(error){
+        error: function (error) {
             $(".problem").css('display', 'block')
             console.log('error', error)
         }
@@ -109,16 +126,26 @@ function displayData(data) {
 
 /* ---------------------------------------WATCH SUBMIT------------------------------------------- */
 
-// function watchSubmit() {
-//     $('.js-search-form').submit(event => {
-//         event.preventDefault();
-//         const queryTarget = $(event.currentTarget).find('.js-query');
-//         const query = queryTarget.val();
-//         // clear out the input
-//         queryTarget.val("");
-//         getDataFromApi(query, displayData);
-//     });
-// }
+function watchSubmit() {
+    $('js-submit-form').submit(event => {
+        event.preventDefault();
+        const queryTarget = $(event.currentTarget).find('.js-query');
+        const query = queryTarget.val();
+        postUsers({
+            FirstName: $('#firstName').val(),
+            LastName: $('#lastName').val(),
+            email: $('#psw').val(),
+            password: $('#firstName').val(),
+            username: $('#username').val(),
+            //$("input[name=rate]:checked").val();
+            budget: $('#budget').val(),
+            numRoomates: $('#Roommate').val(),
+            culture: $('#culture').val(),
+        }, displayData);
+        // clear out the input
+        queryTarget.val("");
+    });
+}
 
 
 

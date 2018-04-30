@@ -22,44 +22,48 @@
     </header> -->
 
     <main role="main" class="test">
-        <form>
-            <form class="as-form" action="insert sign up" method='post'>
-                <fieldset name="Signup">
-                    <legend class="Sign-up">Signup</legend>
+        <form class="as-form" action="/signup" method='post'>
+            <fieldset name="Signup">
+                <legend class="Sign-up">Signup</legend>
+                <div class="signupType">
+                    <label for="FirstName" required>First Name</label>
+                    <input type="email" name='email' id='email' placeholder="Joh" />
 
-                    <label for="name" required>First Name</label>
-                    <input type="name" name='First Name' id='FirstName' placeholder="John" />
-
-                    <label for="name" required>Last Name</label>
-                    <input type="name" name='Last Name' id='LastName' placeholder="Doe" />
+                    <label for="LastName" required>Last Name</label>
+                    <input type="email" name='email' id='email' placeholder="Doe" />
 
                     <label for="email" required>Email</label>
                     <input type="email" name='email' id='email' placeholder="you@email.com" />
 
                     <label for="password" required>Password</label>
                     <input type='password' name='psw' placeholder="password1234" required />
+                </div>
 
-                    <label for="budget" required>Budget</label>
+                <label for="budget" class "budget" required>Budget
                     <input type="radio" name="budget" value="$1 - $500"> $1 - $500
+                    <br>
                     <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000
+                    <br>
                     <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500
+                    <br>
                     <input type="radio" name="budget" value="$1 - $500"> $1600+
+                    <br>
+                </label>
 
+                <label for="roomates" required>Roomates</label>
+                <input type="radio" name="Roomate" value="1"> 1
+                <input type="radio" name="Roomate" value="2"> Less than 2
+                <input type="radio" name="Roomate" value="3"> Less than 3
+                <input type="radio" name="Roomate" value="3+"> 3+
 
-                    <label for="roomates" required>Roomates</label>
-                    <input type="radio" name="Roomate" value="1"> 1
-                    <input type="radio" name="Roomate" value="2"> Less than 2
-                    <input type="radio" name="Roomate" value="3"> Less than 3
-                    <input type="radio" name="Roomate" value="3+"> 3+
+                <label for="Culture" required>Culture</label>
+                <input type="radio" name="Culture" value="1"> Communal
+                <input type="radio" name="Culture" value="2"> Private
 
-
-                    <label for="Culture" required>Culture</label>
-                    <input type="radio" name="Culture" value="1"> Communal
-                    <input type="radio" name="Culture" value="2"> Private
-
-                    <button type="submit">Sign Up</button>
-                </fieldset>
-            </form>
+                <button type="submit">Sign Up</button>
+            </fieldset>
+        </form>
+    </main>
     </main>
     <footer role="contentinfo" class="footer">
         <p>Already have an account?

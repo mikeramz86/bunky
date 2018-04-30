@@ -1,5 +1,5 @@
 body {
-  background-color: #0099e6;
+  background-color: #21B2A8;
   color: black;
   font-size: 16px;
   font-family: Fredoka One;
@@ -15,7 +15,7 @@ fieldset {
   display: block;
   margin-right: auto;
   margin-left: auto;
-  width: 400px;
+  width: 600px;
   padding: 40px;
   color: black;
   background-color: white;
@@ -35,7 +35,7 @@ fieldset {
 
 .as-form input {
   display: block;
-  width: 320px;
+  width: 500px;
   height: auto;
   font-size: 18px;
   text-align: left;
@@ -51,13 +51,21 @@ fieldset {
   width: 100%;
   border-radius: 2px;
   padding: 15px;
-  background-color: rgb(0, 179, 89);
-  color: white;
+  background-color: #21B2A8;
+  color: rgb(255, 255, 255);
   font-size: 35px;
 }
 
+input {
+  display: block;
+}
+
+.budget {
+  display: inline;
+}
+
 .as-form button:hover {
-  background-color: rgb(0, 128, 64);
+  background-color: #80DC90;
 }
 
 .footer {

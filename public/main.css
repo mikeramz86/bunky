@@ -27,29 +27,26 @@ header {
 }
 
 main {
-    /* position: relative; */
-    /* background-color: white; */
-    /* background-image: url("./imgs/twochairs.jpg") */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
 }
 
-.chair {
-    position: fixed;
+
+.couches {
     margin-top: 50px;
-    width: 50%;
-    height: 600px;
+    height: 600px; 
 }
 
 .Homebox {
-    /* position: fixed; */
-    display: inline;
-    align-items: center;
+    width: 50%;
     text-align: center;
-    display: flex;
-    /* margin-top: 50px; */
-    right: 0;
+    margin-top: 75px;
+    height: 600px;
+}
 
+.chair {
+    width: 800px;
+    height: 600px; 
 }
 
 a:link {
@@ -57,9 +54,3 @@ a:link {
     text-decoration: none;
   }
 
-/* section {
-    position: fixed;
-    display: inline;
-    margin-top: 600px;
-} */
-  

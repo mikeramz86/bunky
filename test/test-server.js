@@ -15,7 +15,6 @@ const expect = chai.expect;
 const { User } = require('../models/users');
 const { closeServer, runServer, app } = require('../server');
 const { TEST_DATABASE_URL } = require('../config');
-// console.log(TEST_DATABASE_URL)
 
 chai.use(chaiHttp);
 
@@ -74,9 +73,7 @@ describe('bunky posts API resource', function () {
   after(function () {
     return closeServer();
   });
-  // note the use of nested `describe` blocks.
-  // this allows us to make clearer, more discrete tests that focus
-  // on proving something small
+//------------------------------------TEST GET ENDPOINT-----------------------------------------------
   describe('GET endpoint', function () {
 
     it('should return all existing users', function () {
@@ -100,13 +97,10 @@ describe('bunky posts API resource', function () {
     });
   })
 
+  //------------------------------------TEST POST ENDPOINT-----------------------------------------------
   describe('POST endpoint', function createNewUser() {
 
     it('should create a new user', function () {
-      // strategy:
-      //    1. get back all posts returned by by GET request to `/users`
-      //    2. prove res has right status 201, data type
-      //    3. prove the new user was created
       let res;
       let newUser = {
         password: 'asdfj78900kl',
@@ -126,19 +120,15 @@ describe('bunky posts API resource', function () {
           res = _res;
           console.log(res);
           expect(res).to.have.status(201);
-          // console.log(res.body);
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys(
             'id', 'username', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture');
           expect(res.body.EmailAddress).to.equal(newUser.EmailAddress);
-          // cause Mongo should have created 4`id on insertion
           expect(res.body.id).should.not.be.null;
-          //updateed 4/27- updated with withplace numroomates budget and culture
           expect(res.body.username).to.equal(newUser.username);
           expect(res.body.numRoomates).to.equal(newUser.numRoomates);
           expect(res.body.budget).to.equal(newUser.budget);
           expect(res.body.culture).to.equal(newUser.culture);
-          // console.log('this is the res+', res.body);
           return User.findById(res.body.id);
         })
         .then(user => {
@@ -152,12 +142,10 @@ describe('bunky posts API resource', function () {
         })
     });
   })
+
+  //------------------------------------TEST DELETE ENDPOINT-----------------------------------------------
+
   describe('DELETE endpoint', function () {
-    // strategy:
-    //  1. get a restaurant
-    //  2. make a DELETE request for that restaurant's id
-    //  3. assert that response has right status code
-    //  4. prove that restaurant with the id doesn't exist in db anymore
     it('delete a bunky User by id', function () {
 
       let user;
@@ -178,7 +166,9 @@ describe('bunky posts API resource', function () {
     });
   });
 
-  // -------PUT ENDPINT TEST
+//------------------------------------TEST PUT ENDPOINT-----------------------------------------------
+
+
   describe('PUT endpoint', function () {
     it('should return user data with right fields updated', function () {
       // Strategy: It should update a users' account info

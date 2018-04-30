@@ -1,7 +1,7 @@
 
 
 
-const SEARCH_URL = '--';
+const API_URL = 'http://localhost:8080/users';
 
 /* ---------------------------------------get Data from API-------------------------------------------- */
 function getDataFromApi(searchTerm, callback) {
@@ -14,6 +14,16 @@ function getDataFromApi(searchTerm, callback) {
         success: callback
     };
 
+    $.ajax(settings);
+}
+
+function getUsers(callback) {
+    const settings = {
+        url: API_URL,
+        dataType: 'json',
+        type: 'GET',
+        success: callback
+    };
     $.ajax(settings);
 }
 
@@ -38,24 +48,33 @@ function renderResult(result) {
 /* ---------------------------------------DISPLAY DATA-------------------------------------------- */
 
 function displayData(data) {
-    const showResults = data.response.results.map((item, index) => renderResult(item));
+    console.log(data);
+    const showResults = data.allusers.map((item, index) => renderResult(item));
     $('.js-results').html(showResults);
-}
+};
+
+
+
+
 
 
 
 
 /* ---------------------------------------WATCH SUBMIT------------------------------------------- */
 
-function watchSubmit() {
-    $('.js-search-form').submit(event => {
-        event.preventDefault();
-        const queryTarget = $(event.currentTarget).find('.js-query');
-        const query = queryTarget.val();
-        // clear out the input
-        queryTarget.val("");
-        getDataFromApi(query, displayData);
-    });
-}
+// function watchSubmit() {
+//     $('.js-search-form').submit(event => {
+//         event.preventDefault();
+//         const queryTarget = $(event.currentTarget).find('.js-query');
+//         const query = queryTarget.val();
+//         // clear out the input
+//         queryTarget.val("");
+//         getDataFromApi(query, displayData);
+//     });
+// }
 
-$(watchSubmit);
+
+
+// $(watchSubmit);
+
+$(getUsers(displayData));

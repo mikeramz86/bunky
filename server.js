@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const cors = require('cors');
 
 var path = require('path');
 var logger = require('morgan');
@@ -18,6 +19,11 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require('./config');
 
 const app = express();
+
+// //CORS
+//Note: move around cors to see where it will break!!!
+app.use(cors());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
@@ -34,6 +40,14 @@ app.use('/logged_in', logged_in);
 
 //main place to find profiles
 app.use('/bunky', bunkyTotal);
+
+
+// app.use(function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+//   next();
+// });
 
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });

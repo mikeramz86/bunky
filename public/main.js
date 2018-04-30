@@ -32,11 +32,15 @@ function getUsers(callback) {
 function renderResult(result) {
     return `
             <div class="result"> 
-                <div>${result.FirstName}</div>
-                <div>${result.LastName}</div>
-                <div>${result.EmailAddress}</div>
-                <div>${result.budget}</div>
-                <div>${result.numRoomates}</div>
+                <div class="name">
+                    <div>${result.FirstName} ${result.LastName}</div>
+                </div>
+                <div class="accountInfo">
+                    <div>${result.EmailAddress}</div>
+                    <div>Budget: ${result.budget}</div>
+                    <div>Roomates: ${result.numRoomates}</div>
+                    <div>Culture: ${result.culture}</div>
+                </div>
             </div>
             `
 };

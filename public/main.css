@@ -42,11 +42,34 @@ main {
     text-align: center;
     margin-top: 75px;
     height: 600px;
+    display: block;
+}
+
+.homebtn {
+    position: relative;
+    display: inline-flex;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    background-color: #21B2A8;
+    width: 200px;
+
 }
 
 .chair {
-    width: 800px;
+    width: 750px;
     height: 600px; 
+}
+
+.livingroom {
+    display: block;
+    margin-top: 70px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .js-results {
@@ -65,6 +88,7 @@ main {
     width: 154;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 8px;
 }
 
 a:link {
@@ -75,6 +99,16 @@ a:link {
 
 a, a:visited, a:hover, a:active {
     color: inherit;
+}
+
+hr.style6 {
+	/* background-color: #fff; */
+    border-top: 5px dotted black;
+    margin: 10px;
+}
+
+.name {
+    border-bottom: 2px solid grey;
 }
 
 footer {

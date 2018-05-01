@@ -40,7 +40,7 @@ app.use('/logged_in', logged_in);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
-//main place to find profiles
+//main place to find profiles(5/1/18 maybe I should take this out)
 app.use('/bunky', bunkyTotal);
 
 
@@ -50,6 +50,13 @@ app.use('/bunky', bunkyTotal);
 //   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
 //   next();
 // });
+
+// A protected endpoint which needs a valid JWT to access it
+app.get('/api/protected', jwtAuth, (req, res) => {
+  return res.json({
+    data: 'rosebud'
+  });
+});
 
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });

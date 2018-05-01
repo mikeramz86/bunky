@@ -16,16 +16,16 @@ function getUsers(callback) {
 function postUsers(userobj, callback) {
     const settings = {
         url: API_URL,
-        // data: {
-        //     password: `${password}`,
-        //     username: `${username}`,
-        //     FirstName: `${FirstName}`,
-        //     LastName: `${EmailAddress}`,
-        //     EmailAddress: `${withPlace}`,
-        //     numRoomates: `${numRoomates}`,
-        //     budget: `${budget}`,
-        //     culture: `${culture}`
-        // },
+        data: {
+            FirstName: `${FirstName}`,
+            LastName: `${EmailAddress}`,
+            password: `${password}`,
+            username: `${username}`,
+            EmailAddress: `${withPlace}`,
+            budget: `${budget}`,
+            numRoomates: `${numRoomates}`,
+            culture: `${culture}`
+        },
         data: userObj,
         dataType: 'json',
         type: 'POST',

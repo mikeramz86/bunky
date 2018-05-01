@@ -18,7 +18,13 @@ header {
     right: 0;
     padding: 10px; 
 }
+ h3 {
+     margin-bottom: 20px;
+ }
 
+ p {
+     margin-top: 20px;
+ }
 .menu {
     position: fixed;
     right: 10px;

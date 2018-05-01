@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
     <title></title>
-    <link rel="sylesheet" type="text/css" href="main.css">
     <link rel="sylesheet" type="text/css" href="resp-grid.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <header role="banner"></header>
     <main role="main">
-        <h1>Hello World!</h1>
-        <h2>this is login page</h2>
-        <p>server should be working</p>
-        <div class="js-results"></div>
+        <form class="as-form" action="/signup" method='post'>
+            <fieldset name="Signup">
+                <legend class="Sign-up">Log In</legend>
+                <div class="signupType">
+
+                    <label for="username" required>Username</label>
+                    <input type="username" name='username' id='email' placeholder="JOhn123" />
+
+                    <label for="password" required>Password</label>
+                    <input type='password' name='psw' placeholder="password1234" required />
+
+                <button type="login" class="login">Log In</button>
+            </fieldset>
+        </form>
     </main>
     <footer role="contentinfo"></footer>
     <script type="text/javascript" src="index.js"></script>

@@ -127,3 +127,10 @@ footer {
     text-align: center;
 }
 
+.loginbtn {
+    display: block;
+    text-align: center;
+    margin: auto;
+
+}
+

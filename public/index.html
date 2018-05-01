@@ -6,6 +6,7 @@
     <link rel="sylesheet" type="text/css" href="resp-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 </head>
@@ -17,14 +18,31 @@
 
             <a href="signup.html">Sign up</a>
             <a href="login.html">Log In</a>
-        </div>
+
     </header>
 
     <main role="main .col-12" class="main">
         <div class="Homebox .col-6">
             <h3>bunky connects you to people who are finding roomates</h2>
-                <button class="homebtn" type="submit">SIGNUP</button>
-                <button class="homebtn" type="submit">LOGIN</button>
+                <a href="signup.html">Sign up</a><br>
+                <button class="homebtn loginbtn" id="myBtn">Login</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <label for="username" required>Username</label>
+                        <input type='username' name='username' placeholder="jd123" required />
+                        <label for="password" required>Password</label>
+                        <input type='password' name='psw' placeholder="password1234" required />
+                        <button class="loginbtn" type="submit">Login</button>
+                    </div>
+
+                </div>
+
+
                 <img src="./imgs/living-room.png" class="livingroom" alt="living room">
         </div>
 
@@ -45,7 +63,8 @@
             <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
         </div>
     </footer>
-    <script type="text/javascript" src="main.js"></script>
+    <!-- <script type="text/javascript" src="main.js"></script> -->
+    <script type="text/javascript" src="login.js"></script>
 </body>
 
 </html>

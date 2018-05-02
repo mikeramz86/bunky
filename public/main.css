@@ -134,8 +134,8 @@ hr.style6 {
 }
 
 .js-results {
-    /* display: block; */
-    height: 600px;
+    display: block;
+    /* height: 600px; */
     background-color: white;
 }
 

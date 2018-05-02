@@ -14,68 +14,72 @@
 </head>
 
 <body>
-    <header role="banner">
-        <h1><a href="index.html">bunky</a></h1>
+    <nav role="navigation" clas=".col-12">
+        <div class="logo">
+            <h1>
+                <a href="index.html">bunky</a>
+            </h1>
+        </div>
         <div class="menu">
-            <a href="dashboard.html">dashboard</a>
-        </div>    
-    </header>
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Account</a>
+        </div>
 
-    <main role="main" class="js-submit-form">
-        <form class="as-form" action="/signup" method='post'>
-            <fieldset name="Signup">
-                <legend class="Sign-up">Edit Account</legend>
-                <div class="signupType">
-                    <label for="FirstName" required>First Name</label>
-                    <input type="email" name='email' id='firstName' placeholder="Joh" />
+        <main role="main" class="js-submit-form">
+            <form class="as-form" action="/signup" method='post'>
+                <fieldset name="Signup">
+                    <legend class="Sign-up">Edit Account</legend>
+                    <div class="signupType">
+                        <label for="FirstName" required>First Name</label>
+                        <input type="email" name='email' id='firstName' placeholder="Joh" />
 
-                    <label for="LastName" required>Last Name</label>
-                    <input type="email" name='email' id='lastName' placeholder="Doe" />
+                        <label for="LastName" required>Last Name</label>
+                        <input type="email" name='email' id='lastName' placeholder="Doe" />
 
-                    <label for="email" required>Email</label>
-                    <input type="email" name='email' id='email' placeholder="you@email.com" />
+                        <label for="email" required>Email</label>
+                        <input type="email" name='email' id='email' placeholder="you@email.com" />
 
-                    <label for="username" required>Username</label>
-                    <input type='username' name='username' placeholder="jd123" required />
+                        <label for="username" required>Username</label>
+                        <input type='username' name='username' placeholder="jd123" required />
 
-                    <label for="password" required>Password</label>
-                    <input type='password' name='psw' placeholder="password1234" required />
+                        <label for="password" required>Password</label>
+                        <input type='password' name='psw' placeholder="password1234" required />
 
-                </div>
+                    </div>
 
-                <label for="budget" class "budget" required>Budget
-                    <input type="radio" name="budget" value="$1 - $500">
-                    <label for="contactChoice1">$1 - $500</label> 
-                    <br>
-                    <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000
-                    <br>
-                    <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500
-                    <br>
-                    <input type="radio" name="budget" value="$1 - $500"> $1600+
-                    <br>
-                </label>
+                    <label for="budget" class "budget" required>Budget
+                        <input type="radio" name="budget" value="$1 - $500">
+                        <label for="contactChoice1">$1 - $500</label>
+                        <br>
+                        <input type="radio" name="budget" value="$500 - $1000"> $500 - $1000
+                        <br>
+                        <input type="radio" name="budget" value="$1 - $500"> $1100 - $1500
+                        <br>
+                        <input type="radio" name="budget" value="$1 - $500"> $1600+
+                        <br>
+                    </label>
 
-                <label for="roomates" required>Roomates</label>
-                <input type="radio" name="Roomate" value="1"> 1
-                <input type="radio" name="Roomate" value="2"> Less than 2
-                <input type="radio" name="Roomate" value="3"> Less than 3
-                <input type="radio" name="Roomate" value="3+"> 3+
+                    <label for="roomates" required>Roomates</label>
+                    <input type="radio" name="Roomate" value="1"> 1
+                    <input type="radio" name="Roomate" value="2"> Less than 2
+                    <input type="radio" name="Roomate" value="3"> Less than 3
+                    <input type="radio" name="Roomate" value="3+"> 3+
 
-                <label for="Culture" required>Culture</label>
-                <input type="radio" name="Culture" value="1"> Communal
-                <input type="radio" name="Culture" value="2"> Private
+                    <label for="Culture" required>Culture</label>
+                    <input type="radio" name="Culture" value="1"> Communal
+                    <input type="radio" name="Culture" value="2"> Private
 
-                <button type="submit">Update</button>
-            </fieldset>
-        </form>
-    </main>
-    </main>
-    <footer role="contentinfo" class="footer">
-        <!-- <p>Already have an account?
+                    <button type="submit">Update</button>
+                </fieldset>
+            </form>
+        </main>
+        </main>
+        <footer role="contentinfo" class="footer">
+            <!-- <p>Already have an account?
             <a href="/login">Log in</a>
         </p> -->
-    </footer>
-    <script type="text/javascript" src="index.js"></script>
+        </footer>
+        <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>

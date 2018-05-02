@@ -9,11 +9,11 @@ $('.js-submit-form').submit(event => {
 })
 
 function newUser() {
-    let signup_firstName = $('input[id="js-signup-firstName"]').val();
-    let signup_lastName = $('input[id="js-signup-lastName"]').val();
-    let signup_username = $('input[id="js-signup-username"]').val();
-    let signup_email = $('input[id="js-signup-email"]').val();
-    let signup_password = $('input[id="js-signup-password"]').val();
+    let signup_firstName = $('input[id="firstName"]').val();
+    let signup_lastName = $('input[id="lastName"]').val();
+    let signup_email = $('input[id="email"]').val();
+    let signup_username = $('input[id="userName"]').val();
+    let signup_password = $('input[id="psw]').val();
     let signup_budget = $("input[name=budget]:checked").val();;
     let signup_numRoomates = $("input[name=Roomate]:checked").val();
     let signup_culture = $("input[name=Culture]:checked").val();
@@ -21,7 +21,7 @@ function newUser() {
 }
 
 
-function postNewUser (firstName, lastName, username, email, password, budget, numRoomates,culture) {
+function postNewUser (FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture) {
     $('.sign-up-failure').remove();
     $.ajax({
         url: '/api/users',
@@ -33,7 +33,7 @@ function postNewUser (firstName, lastName, username, email, password, budget, nu
             LastName: `${EmailAddress}`,
             password: `${password}`,
             username: `${username}`,
-            EmailAddress: `${withPlace}`,
+            EmailAddress: `${EmailAddress}`,
             budget: `${budget}`,
             numRoomates: `${numRoomates}`,
             culture: `${culture}`
@@ -48,9 +48,9 @@ function postNewUser (firstName, lastName, username, email, password, budget, nu
                 $('input[id="js-signup-username"]').val('');
                 $('input[id="js-signup-email"]').val('');
                 $('input[id="js-signup-password"]').val('');
-                $('input[id="js-signup-password"]').val('');
-                $('input[id="js-signup-password"]').val('');
-                $('input[id="js-signup-password"]').val('');
+                $('input[id="js-signup-budget"]').val('');
+                $('input[id="js-signup-numRoomates"]').val('');
+                $('input[id="js-signup-culture"]').val('');
             }
         },
         error: (...rest) => {

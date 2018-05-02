@@ -133,10 +133,16 @@ hr.style6 {
     border-bottom: 2px solid grey;
 }
 
+.js-results {
+    /* display: block; */
+    height: 600px;
+    background-color: white;
+}
+
 footer {
     background-color: grey;
-    padding-top: 50px;
-    height: 100px;
+    padding-top: 100px;
+    /* height: 100px; */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -148,4 +154,6 @@ footer {
     margin: auto;
 
 }
+
+
 

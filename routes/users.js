@@ -28,7 +28,7 @@ router.get('/for_tests', (req, res) => {
 });
 //---------------------------- CREATE NEW USER ----------------------------------------
 router.post('/', jsonParser, (req, res) => {
-  const requiredFields = ['username','password', 'FirstName', 'LastName', 'EmailAddress','numRoomates', 'budget', 'culture'];
+  const requiredFields = [ 'FirstName', 'LastName', 'EmailAddress','username','password','numRoomates', 'budget', 'culture'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
@@ -54,13 +54,6 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  // If the username and password aren't trimmed we give an error.  Users might
-  // expect that these will work without trimming (i.e. they want the password
-  // "foobar ", including the space at the end).  We need to reject such values
-  // explicitly so the users know what's happening, rather than silently
-  // trimming them and expecting the user to understand.
-  // We'll silently trim the other fields, because they aren't credentials used
-  // to log in, so it's less of a problem.
   const explicityTrimmedFields = ['username', 'password'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
@@ -133,14 +126,15 @@ router.post('/', jsonParser, (req, res) => {
     })
     .then(hash => {
       return User.create({
-        EmailAddress: req.body.EmailAddress,
-        password: hash,
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,
+        EmailAddress: req.body.EmailAddress,
+        username: req.body.username,
+        password: hash,
         budget: req.body.budget,
         numRoomates: req.body.numRoomates,
-        culture: req.body.culture,
-        username: req.body.username
+        culture: req.body.culture
+
       });
     })
     .then(user => {
@@ -170,7 +164,7 @@ router.get('/', (req, res) => {
 //--- PUT ENDPOINT ----
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = [
-    'id','username', 'password', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture'];
+    'id', 'FirstName', 'LastName', 'EmailAddress','username','password', 'numRoomates', 'budget', 'culture'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -190,11 +184,11 @@ router.put('/:id', jsonParser, (req, res) => {
 
   const updatedItem = {
     id: req.params.id,
-    username: req.body.username,
-    EmailAddress: req.body.EmailAddress,
-    password: req.body.password,
     FirstName: req.body.FirstName,
     LastName: req.body.LastName,
+    EmailAddress: req.body.EmailAddress,
+    username: req.body.username,
+    password: req.body.password,
     budget: req.body.budget,
     numRoomates: req.body.numRoomates,
     culture: req.body.culture

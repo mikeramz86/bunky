@@ -24,40 +24,41 @@ function newUser() {
 function postNewUser (FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture) {
     $('.sign-up-failure').remove();
     $.ajax({
-        url: '/api/users',
+        url: API_URL,
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
-        data:   {
+        data: JSON.stringify   ({
             FirstName: `${FirstName}`,
             LastName: `${EmailAddress}`,
-            password: `${password}`,
             username: `${username}`,
+            password: `${password}`,
             EmailAddress: `${EmailAddress}`,
             budget: `${budget}`,
             numRoomates: `${numRoomates}`,
             culture: `${culture}`
-        },
+        }),
         success: (data) => {
+            console.log(data);
             if(data) {
                 $('.js-submit-form').prepend(
                     `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully signed up! Now you can <a href='/'>login</a>!<span></div>`
                 )
-                $('input[id="js-signup-firstName"]').val('');
-                $('input[id="js-signup-lastName"]').val('');
-                $('input[id="js-signup-username"]').val('');
-                $('input[id="js-signup-email"]').val('');
-                $('input[id="js-signup-password"]').val('');
-                $('input[id="js-signup-budget"]').val('');
-                $('input[id="js-signup-numRoomates"]').val('');
-                $('input[id="js-signup-culture"]').val('');
+                $('input[id="firstName"]').val('');
+                $('input[id="lastName"]').val('');
+                $('input[id="email"]').val('');
+                $('input[id="userName"]').val('');
+                $('input[id="psw"]').val('');
+                $('input[id="budget"]').val('');
+                $('input[id="numRoomates"]').val('');
+                $('input[id="culture"]').val('');
             }
         },
         error: (...rest) => {
             $('.js-submit-form').prepend(
                 `
                     <div class='sign-up-failure'>
-                        <p>Ohh noo! This email has already been used for signup.</p>
+                        <p>Create a user failed.</p>
                         <p>Login or try a different email</p>
                     </div>
                 `

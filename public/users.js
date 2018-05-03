@@ -30,7 +30,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
         contentType: 'application/json',
         data: JSON.stringify   ({
             FirstName: `${FirstName}`,
-            LastName: `${EmailAddress}`,
+            LastName: `${LastName}`,
             username: `${username}`,
             password: `${password}`,
             EmailAddress: `${EmailAddress}`,

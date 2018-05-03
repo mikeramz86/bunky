@@ -5,11 +5,11 @@ const bcrypt = require ('bcryptjs');
 mongoose.Promise = global.Promise;
 
 const userSchema = mongoose.Schema({
+  FirstName: {type: String, required: true},
+  LastName: {type: String, required: true},
   EmailAddress: {type: String, required: true},
   username: {type: String,required: true},
   password: {type: String,required: true},
-  FirstName: {type: String, required: true},
-  LastName: {type: String, required: true},
   numRoomates: {type: String, required: true},
   budget: {type: String, required: true},
   culture: {type: String, required: true}

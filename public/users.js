@@ -22,6 +22,7 @@ function newUser() {
 
 
 function postNewUser (FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture) {
+    console.log(FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture);
     $('.sign-up-failure').remove();
     $.ajax({
         url: API_URL,

@@ -40,7 +40,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const stringFields = ['username','password', 'FirstName', 'LastName', 'EmailAddress','numRoomates', 'budget', 'culture'];
+  const stringFields = ['FirstName', 'LastName', 'username', 'EmailAddress','password', 'numRoomates', 'budget', 'culture'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -161,7 +161,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-//--- PUT ENDPOINT ----
+//-------------------------------------------PUT ENDPOINT ----
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = [
     'id', 'FirstName', 'LastName', 'EmailAddress','username','password', 'numRoomates', 'budget', 'culture'];
@@ -209,7 +209,7 @@ router.put('/:id', jsonParser, (req, res) => {
 });
 
 
-//----Delete Endpint ----
+//-----------------------------------------------------------Delete Endpint ----
 router.delete("/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => {

@@ -12,32 +12,9 @@ function getUsers(callback) {
     $.ajax(settings);
 }
 
-/* ---------------------------------------CREATE ACCOUnt-------------------------------------------- */
-function postUsers(userobj, callback) {
-    const settings = {
-        url: API_URL,
-        data: {
-            FirstName: `${FirstName}`,
-            LastName: `${EmailAddress}`,
-            password: `${password}`,
-            username: `${username}`,
-            EmailAddress: `${withPlace}`,
-            budget: `${budget}`,
-            numRoomates: `${numRoomates}`,
-            culture: `${culture}`
-        },
-        data: userObj,
-        dataType: 'json',
-        type: 'POST',
-        success: callback
-    };
-    $.ajax(settings);
-}
-
-
 /* ---------------------------------------DELETE------------------------------------------- */
 
-$('#permanent-delete-account').click(function () {
+$('.js-permanent-delete-account').click(function () {
     $.ajax({
         url: API_URL,
         data: { EmailAddress },
@@ -124,28 +101,7 @@ function displayData(data) {
 
 
 
-/* ---------------------------------------WATCH SUBMIT------------------------------------------- */
 
-function watchSubmit() {
-    $('js-submit-form').submit(event => {
-        event.preventDefault();
-        const queryTarget = $(event.currentTarget).find('.js-query');
-        const query = queryTarget.val();
-        postUsers({
-            FirstName: $('#firstName').val(),
-            LastName: $('#lastName').val(),
-            email: $('#psw').val(),
-            password: $('#firstName').val(),
-            username: $('#username').val(),
-            //$("input[name=rate]:checked").val();
-            budget: $('#budget').val(),
-            numRoomates: $('#Roommate').val(),
-            culture: $('#culture').val(),
-        }, displayData);
-        // clear out the input
-        queryTarget.val("");
-    });
-}
 
 
 

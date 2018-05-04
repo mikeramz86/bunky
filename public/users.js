@@ -13,11 +13,13 @@ function newUser() {
     let signup_lastName = $('input[id="lastName"]').val();
     let signup_email = $('input[id="email"]').val();
     let signup_username = $('input[id="userName"]').val();
-    let signup_password = $('input[id="psw]').val();
+    let signup_password = $('input[id="psw"]').val();
     let signup_budget = $("input[name=budget]:checked").val();
     let signup_numRoomates = $("input[name=Roomate]:checked").val();
     let signup_culture = $("input[name=Culture]:checked").val();
-    postNewUser(signup_firstName, signup_lastName, signup_username, signup_email, signup_password, signup_budget,signup_numRoomates,signup_culture);
+    postNewUser(signup_firstName, signup_lastName, signup_username, signup_password, signup_email, signup_budget,signup_numRoomates,signup_culture);
+    console.log(signup_password);
+    console.log($('input[id="psw"]'));
 }
 
 

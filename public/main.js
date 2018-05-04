@@ -18,11 +18,11 @@ function getUsers(callback) {
 function renderResult(result) {
 console.log(result._id);
     return `
-            <div class="result .col-3"> 
+            <div class="result .col-3" > 
                 <div class="name">
                     <div>${result.FirstName} ${result.LastName}</div>
                 </div>
-                <div class="accountInfo">
+                <div class="accountInfo" id="${result._id}">
                     <div>${result.EmailAddress}</div>
                     <div>Budget: ${result.budget}</div>
                     <div>Roomates: ${result.numRoomates}</div>
@@ -50,14 +50,14 @@ function displayData(data) {
 
 $(getUsers(displayData));
 
-/* ---------------------------------------DELETE------------------------------------------- */
-$('.js-permanent-delete-bunky').click(function () {
-    const bunkyId = $(event.target).data('delete-id')
-    console.log(bunkyId);
+/* ---------------------------------------UPDATE------------------------------------------- */
+$( '.js-results' ).on( "click",".js-permanent-delete-bunky", function(e) {
+    // console.log(bunkyId);
+    console.log('finding specific id',$(e.target).parent().attr("id"));
+    const bunkyId = $(e.target).parent().attr("id");
     $.ajax({
         url: `/users/` + bunkyId,
-        type: 'DELETE',
-        data: { EmailAddress },
+        type: 'PUT',
         dataType: 'json',
         success: function (result) {
             //then return to dashboard.html
@@ -71,4 +71,31 @@ $('.js-permanent-delete-bunky').click(function () {
             console.log('error')
         }
     });
-})
+  });
+
+/* ---------------------------------------DELETE------------------------------------------- */
+
+$( '.js-results' ).on( "click",".js-permanent-delete-bunky", function(e) {
+    // console.log(bunkyId);
+    console.log('finding specific id',$(e.target).parent().attr("id"));
+    const bunkyId = $(e.target).parent().attr("id");
+    $.ajax({
+        url: `/users/` + bunkyId,
+        type: 'DELETE',
+        dataType: 'json',
+        success: function (result) {
+            //then return to dashboard.html
+            window.location.href = `/dashboard.html?delete=true`
+            //doesn't display on dashboard.html
+            $(".delete-alert-danger2").text(result.message)
+            console.log(result);
+        },
+        error: function () {
+            $(".problem").css('display', 'block')
+            console.log('error')
+        }
+    });
+  });
+
+
+  

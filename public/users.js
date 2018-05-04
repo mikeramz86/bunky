@@ -2,7 +2,7 @@
 
 const API_URL = 'http://localhost:8080/users';
 
-// Create New Bunky
+// ---------------------------------Create New Bunky---------------------------------
 $('.js-submit-form').submit(event => {
     event.preventDefault();
     newUser();
@@ -44,7 +44,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
             console.log(data);
             if(data) {
                 $('.js-submit-form').prepend(
-                    `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully signed up! Now you can <a href='/'>login</a>!<span></div>`
+                    `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully signed up! Now you can <a href='/dashboard.html'>login</a>!<span></div>`
                 )
                 $('input[id="firstName"]').val('');
                 $('input[id="lastName"]').val('');
@@ -69,4 +69,50 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
     })
 }
 
+// ---------------------------------Update Bunky---------------------------------
+
+function putBunky (callback) {
+    let update_firstName = $('input[id="firstName"]').val();
+    let update_lastName = $('input[id="lastName"]').val();
+    let update_email = $('input[id="email"]').val();
+    let update_username = $('input[id="userName"]').val();
+    let update_password = $('input[id="psw"]').val();
+    let update_budget = $("input[name=budget]:checked").val();
+    let update_numRoomates = $("input[name=Roomate]:checked").val();
+    let update_culture = $("input[name=Culture]:checked").val();
+    $.ajax({
+        url: `/users/${currentId}`,
+        type: 'PUT',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            FirstName: `${FirstName}`,
+            LastName: `${LastName}`,
+            username: `${username}`,
+            password: `${password}`,
+            EmailAddress: `${EmailAddress}`,
+            budget: `${budget}`,
+            numRoomates: `${numRoomates}`,
+            culture: `${culture}`
+        }),
+        success: function(data) {
+            if(data) {
+                console.log(data);
+                callback(data);
+            }
+        },
+        error: (...rest) => {
+            $('.js-submit-form').prepend(
+                `
+                    <div class='sign-up-failure'>
+                        <p>Create a user failed.</p>
+                        <p>Login or try a different email</p>
+                    </div>
+                `
+            )
+        }
+    });    
+};
+
+// ---------------------------------Delete Bunky---------------------------------
 

@@ -12,61 +12,11 @@ function getUsers(callback) {
     $.ajax(settings);
 }
 
-/* ---------------------------------------DELETE------------------------------------------- */
-
-$('.js-permanent-delete-account').click(function () {
-    $.ajax({
-        url: 'api/delete',
-        data: { EmailAddress },
-        headers: { 'authorization': `Bearer ${token}` },
-        dataType: 'json',
-        success: function (result) {
-            //then return to index.html
-            window.location.href = `/index.html?delete=true`
-            //doesn't display on index.html
-            $(".delete-alert-danger2").text(result.message)
-        },
-        error: function () {
-            $(".problem").css('display', 'block')
-            console.log('error')
-        }
-    });
-})
-
-/* ---------------------------------------UPDATE-------------------------------------------- */
-$('.update-account').click(function (e) {
-    e.preventDefault();
-    let obj = {
-        EmailAddress: $('#inputEmail3').val().trim(),
-        FirstName: $('#inputFirstName3').val().trim(),
-        LastName: $('#inputLastName3').val().trim(),
-        RentPayment: $('#inputRentPayment3').val().trim()
-    };
-    $.ajax({
-        url: API_URL,
-        type: 'PUT',
-        data: obj,
-        headers: { 'authorization': `Bearer ${token}` },
-        dataType: 'json',
-        success: function (result) {
-            console.log('success = ', result);
-            $('#inputFirstName3').val(result.FirstName);
-            $('#inputLastName3').val(result.LastName);
-            $('#inputbudget3').val(result.budget);
-            $('#inputnumRoommates3').val(result.numRoomates);
-            $('#inputculturet3').val(result.cultre);
-            $('.update-alert-success').css('display', 'block').text("Your account has been updated!");
-        },
-        error: function (error) {
-            $(".problem").css('display', 'block')
-            console.log('error', error)
-        }
-    })
-});
 
 
 /* ---------------------------------------RENDER RESULTS-------------------------------------------- */
 function renderResult(result) {
+console.log(result._id);
     return `
             <div class="result .col-3"> 
                 <div class="name">
@@ -77,6 +27,8 @@ function renderResult(result) {
                     <div>Budget: ${result.budget}</div>
                     <div>Roomates: ${result.numRoomates}</div>
                     <div>Culture: ${result.culture}</div>
+                    <button class="js-permanent-delete-bunky loginbtn" type="submit">Delete</button>
+                    <button class="js-update-bunkyl oginbtn" type="submit">Update</button>
                 </div>
             </div>
             `
@@ -97,3 +49,26 @@ function displayData(data) {
 
 
 $(getUsers(displayData));
+
+/* ---------------------------------------DELETE------------------------------------------- */
+$('.js-permanent-delete-bunky').click(function () {
+    const bunkyId = $(event.target).data('delete-id')
+    console.log(bunkyId);
+    $.ajax({
+        url: `/users/` + bunkyId,
+        type: 'DELETE',
+        data: { EmailAddress },
+        dataType: 'json',
+        success: function (result) {
+            //then return to dashboard.html
+            window.location.href = `/dashboard.html?delete=true`
+            //doesn't display on dashboard.html
+            $(".delete-alert-danger2").text(result.message)
+            console.log(result);
+        },
+        error: function () {
+            $(".problem").css('display', 'block')
+            console.log('error')
+        }
+    });
+})

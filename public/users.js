@@ -70,3 +70,40 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
 
 
 //------------------------LOGIN --------------------------------
+// $('.js-login-form).submit(event => {
+//     event.preventDefault();
+//     returningUser();
+// });
+
+// function returningUser(username, password) {
+//     let login_username = $('input[id="js-login-username"]').val();
+//     let login_password = $('input[id="js-login-password"]').val();
+//     postReturningUser(login_email, login_password);
+// }
+
+// function postReturningUser(email, password) {
+//     $.ajax({
+//         url:'',
+//         type: 'POST',
+//         dataType: 'json',
+//         contentType: 'application/json',
+//         data: JSON.stringify({
+//             email: email,
+//             password: password
+//         }),
+//         success: (token) => {
+//             localStorage.setItem('authToken', token.authToken);
+//             location.href = '/dashboard.html';
+//         },
+//         error: (jqXHR, exception) => {
+//             $('.alert').attr('aria-hidden', 'false').removeClass('hidden');
+//         }
+//     });
+// }
+
+// $(function() {
+// 	const token = localStorage.getItem('authToken');
+//   if (token) {
+// 		location.href="/dashboard.html";
+//   }
+// })

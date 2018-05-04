@@ -96,15 +96,4 @@ function displayData(data) {
 
 
 
-
-
-
-
-
-
-
-
-
-// $(watchSubmit);
-
 $(getUsers(displayData));

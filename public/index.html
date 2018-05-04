@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title></title>
-    <link rel="sylesheet" type="text/css" href="main.css">
+    <title>bunky: a place to meet your roomate</title>
     <link rel="sylesheet" type="text/css" href="resp-grid.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header role="banner"></header>
-    <main role="main">
-        <h1>Hello World!</h1>
-        <h2>..again</h2>
+    <nav role="navigation" clas=".col-12">
+        <div class="logo">
+            <h1>
+                <a href="index.html">bunky</a>
+            </h1>
+        </div>
+        <div class="menu">
+            <a href="signup.html">Sign Up</a>
+            <a href="Dashboard.html">Dashboard</a>
+        </div>
+    </nav>
+
+    <main role="main" class="main">
+
+        <div class="couches .col-12">
+            <h3 class="top-left">connecting people together under one roof</h3>
+            <img src="./imgs/twochairs.jpg" class="chair " alt="two chair image">
+        </div>
+        <div class="Homebox .col-12">
+            <p>Click here to try it out!</p>
+            <form>
+                    <button class="homebtn loginbtn" id="myBtn" type="submit" formaction="dashboard.html">Dashboard</button>
+             </form>
+        </div>
+
+
     </main>
-    <footer role="contentinfo"></footer>
-    <script type="text/javascript" src="index.js"></script>
+
+    <footer role="contentinfo">
+        <a href="https://www.freepik.com/free-vector/living-room-decoration_801265.htm">Designed by Freepik</a>
+        <div>Icons made by
+            <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
+            <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+            <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            <div>Icons made by
+                <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from
+                <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </div>
+        </div>
+    </footer>
+    <!-- <script type="text/javascript" src="main.js"></script> -->
+    <script type="text/javascript" src="login.js"></script>
 </body>
+
 </html>

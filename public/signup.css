@@ -1,0 +1,85 @@
+body {
+  background-color: #21B2A8;
+  color: black;
+  font-size: 16px;
+  font-family: Fredoka One;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.as-form {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px;
+  padding: 40px;
+  color: black;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.as-form legend {
+  width: 100%;
+  line-height: 38px;
+  font-size: 35px;
+  font-weight: 300; 
+  color: #565656;
+  text-align: center;
+  letter-spacing: 0;
+  margin: 0 auto 45px;
+}
+
+.as-form input {
+  display: block;
+  width: 500px;
+  height: auto;
+  font-size: 18px;
+  text-align: left;
+  padding: 15px;
+  border: 2px solid grey;
+  border-radius: 3px;
+  background: white;
+  margin: 10px auto 20px;
+}
+
+.as-form button {
+  display: block;
+  width: 100%;
+  border-radius: 2px;
+  padding: 15px;
+  background-color: #21B2A8;
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+}
+
+input {
+  display: block;
+}
+
+.budget {
+  display: inline;
+}
+
+.as-form button:hover {
+  background-color: #80DC90;
+}
+
+.footer {
+  text-align: center;
+  color: white;
+  margin: 20px auto;
+  border: 0;
+  padding: 0;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+  color: grey; 
+}

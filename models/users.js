@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
   password: {type: String,required: true},
   numRoomates: {type: String, required: true},
   budget: {type: String, required: true},
-  culture: {type: String, required: true}
+  culture: {type: String, required: true},
 });
 
 // userSchema.virtual('fullName').get(function() {
@@ -29,7 +29,7 @@ userSchema.methods.serialize = function() {
     LastName: this.LastName,
     numRoomates: this.numRoomates,
     budget: this.budget,
-    culture: this.culture
+    culture: this.culture,
   };
 }
 

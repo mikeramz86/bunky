@@ -164,7 +164,7 @@ router.get('/', (req, res) => {
 //-------------------------------------------PUT ENDPOINT ----
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = [
-    'id', 'FirstName', 'LastName', 'EmailAddress','username','password', 'numRoomates', 'budget', 'culture'];
+    'id', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -187,8 +187,6 @@ router.put('/:id', jsonParser, (req, res) => {
     FirstName: req.body.FirstName,
     LastName: req.body.LastName,
     EmailAddress: req.body.EmailAddress,
-    username: req.body.username,
-    password: req.body.password,
     budget: req.body.budget,
     numRoomates: req.body.numRoomates,
     culture: req.body.culture

@@ -199,6 +199,20 @@ $('.js-results').on("click", "#update", function (e) {
 
   });
 
+  $('.js-results').on("click", "#cancel", function (e) {
+    e.preventDefault();
+    DATA.isEditing = null;
+    const showResults = DATA.data.map(item => {
+        if (item._id === DATA.isEditing) {
+            return renderEdit(item);
+        }
+        else {
+            return renderResult(item);
+        }
+    });
+    $('.js-results').html(showResults);
+  });
+
 /* ---------------------------------------DELETE------------------------------------------- */
 
 $('.js-results').on("click", ".js-permanent-delete-bunky", function (e) {

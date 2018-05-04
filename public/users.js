@@ -2,7 +2,7 @@
 
 const API_URL = 'http://localhost:8080/users';
 
-// Create New Account
+// Create New Bunky
 $('.js-submit-form').submit(event => {
     event.preventDefault();
     newUser();
@@ -21,7 +21,6 @@ function newUser() {
     console.log(signup_password);
     console.log($('input[id="psw"]'));
 }
-
 
 function postNewUser (FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture) {
     console.log(FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture);
@@ -71,37 +70,3 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
 }
 
 
-//------------------------LOGIN --------------------------------//
-$(function(){
-	function createURLObject(){
-		let string = window.location.search.substring(1);
-		let arr = string.split('&');
-		let returnObj = {};
-		for(let i = 0; i < arr.length; i++){
-		  let miniArr = arr[i].split("=")
-		  returnObj[miniArr[0]] = miniArr[1]
-		}
-		return returnObj;
-	}
-		$('.js-login-form').submit(function(e){
-			e.preventDefault();
-			let username = $('.js-login-username').val();
-			let password = $('js-login-password').val();
-			$.ajax({
-            	url: API_URL, 
-	            type: 'POST', 
-                data: JSON.stringify   ({
-                    username: `${username}`,
-                    password: `${password}`
-                }),
-	            success: function(result)
-	            { 
-	            	window.location.href = `/dashboard.html?token=${result.authToken}&username=${obj.username}`
-	            }, 
-	            error: function() 
-	            { 
-	            	$(".js-login-form").css("display", "block").text(`Something went wrong -- please try again`) 
-	            }  
-        	});
-		})
-})

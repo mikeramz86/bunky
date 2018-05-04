@@ -71,41 +71,37 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
 }
 
 
-//------------------------LOGIN --------------------------------
-// $('.js-login-form).submit(event => {
-//     event.preventDefault();
-//     returningUser();
-// });
-
-// function returningUser(username, password) {
-//     let login_username = $('input[id="js-login-username"]').val();
-//     let login_password = $('input[id="js-login-password"]').val();
-//     postReturningUser(login_email, login_password);
-// }
-
-// function postReturningUser(email, password) {
-//     $.ajax({
-//         url:'',
-//         type: 'POST',
-//         dataType: 'json',
-//         contentType: 'application/json',
-//         data: JSON.stringify({
-//             email: email,
-//             password: password
-//         }),
-//         success: (token) => {
-//             localStorage.setItem('authToken', token.authToken);
-//             location.href = '/dashboard.html';
-//         },
-//         error: (jqXHR, exception) => {
-//             $('.alert').attr('aria-hidden', 'false').removeClass('hidden');
-//         }
-//     });
-// }
-
-// $(function() {
-// 	const token = localStorage.getItem('authToken');
-//   if (token) {
-// 		location.href="/dashboard.html";
-//   }
-// })
+//------------------------LOGIN --------------------------------//
+$(function(){
+	function createURLObject(){
+		let string = window.location.search.substring(1);
+		let arr = string.split('&');
+		let returnObj = {};
+		for(let i = 0; i < arr.length; i++){
+		  let miniArr = arr[i].split("=")
+		  returnObj[miniArr[0]] = miniArr[1]
+		}
+		return returnObj;
+	}
+		$('.js-login-form').submit(function(e){
+			e.preventDefault();
+			let username = $('.js-login-username').val();
+			let password = $('js-login-password').val();
+			$.ajax({
+            	url: API_URL, 
+	            type: 'POST', 
+                data: JSON.stringify   ({
+                    username: `${username}`,
+                    password: `${password}`
+                }),
+	            success: function(result)
+	            { 
+	            	window.location.href = `/dashboard.html?token=${result.authToken}&username=${obj.username}`
+	            }, 
+	            error: function() 
+	            { 
+	            	$(".js-login-form").css("display", "block").text(`Something went wrong -- please try again`) 
+	            }  
+        	});
+		})
+})

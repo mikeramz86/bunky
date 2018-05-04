@@ -16,7 +16,7 @@ function getUsers(callback) {
 
 $('.js-permanent-delete-account').click(function () {
     $.ajax({
-        url: API_URL,
+        url: 'api/delete',
         data: { EmailAddress },
         headers: { 'authorization': `Bearer ${token}` },
         dataType: 'json',

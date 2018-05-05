@@ -1,5 +1,5 @@
 
-const API_URL = 'http://localhost:8080/users';
+const API_URL = 'https://murmuring-castle-28514.herokuapp.com/users';
 
 const DATA = {
     data: [],

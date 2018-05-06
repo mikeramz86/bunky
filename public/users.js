@@ -43,8 +43,8 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
         success: (data) => {
             console.log(data);
             if(data) {
-                $('.js-submit-form').prepend(
-                    `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully signed up! Now you can <a href='/dashboard.html'>login</a>!<span></div>`
+                $('.js-success').prepend(
+                    `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully added a bunky! Now head to<a href='/dashboard.html'>login</a>!<span></div>`
                 )
                 $('input[id="firstName"]').val('');
                 $('input[id="lastName"]').val('');
@@ -57,7 +57,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
             }
         },
         error: (...rest) => {
-            $('.js-submit-form').prepend(
+            $('.js-success').prepend(
                 `
                     <div class='sign-up-failure'>
                         <p>Create a user failed.</p>

@@ -82,6 +82,7 @@ function renderEdit(result) {
                 <button id="update" type="submit">Update</button>
                 <button id="cancel" type="submit">Cancel</button>
             </fieldset>
+            <div class="js-upfail'"></div>
         </form>
             `
 
@@ -169,11 +170,11 @@ $('.js-results').on("click", "#update", function (e) {
             }
         },
         error: (...rest) => {
-            $('.js-submit-form').prepend(
+            $('.js-upfail').prepend(
                 `
-                    <div class='sign-up-failure'>
-                        <p>Create a user failed.</p>
-                        <p>Login or try a different email</p>
+                    <div class='upate-failure'>
+                        <p>update failed.</p>
+                        <p>please try again</p>
                     </div>
                 `
             )

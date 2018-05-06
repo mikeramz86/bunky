@@ -34,6 +34,7 @@ function renderResult(result) {
                     <div id="updateCulture" value="${result.culture}">Culture: ${result.culture}</div>
                     <button class="js-update-bunky loginbtn">Update</button>
                     <button class="js-permanent-delete-bunky loginbtn" type="submit">Delete</button>
+                    <div class="js-delfail"></div>
 
                 </div
             </div>
@@ -214,9 +215,15 @@ $('.js-results').on("click", ".js-permanent-delete-bunky", function (e) {
             $(".delete-alert-danger2").text(result.message)
             console.log(result);
         },
-        error: function () {
-            $(".problem").css('display', 'block')
-            console.log('error')
+        error: (...rest) => {
+            $('.js-delfail').prepend(
+                `
+                    <div class='upate-failure'>
+                        <p>update failed.</p>
+                        <p>please try again</p>
+                    </div>
+                `
+            ) 
         }
     });
 });

@@ -5,13 +5,13 @@ Live Link: <a href="https://mikeramz86.github.io/morning_design_ritual_api/"> bu
 
 <h2>Images</h2>
 <div>Home Page </div>
-<img src="./imgs/home_page.png" alt="Home Page screenshot">
+<img src="./public/imgs/home_page.png" alt="Home Page screenshot">
 <div>Dashboard Page (get/delete/update)</div>
-<img src="./imgs/get_delete_page.png" alt="Dashboard screenshot">
+<img src="./public/imgs/get_delete_page.png" alt="Dashboard screenshot">
 <div>Add bunky (Post Endpoint) </div>
-<img src="./imgs/add_bunky_page.png" alt="Add Page screenshot">
+<img src="./public/imgs/add_bunky_page.png" alt="Add Page screenshot">
 <div>Update Page (Put bunky)</div>
-<img src="./imgs/update_page.png" alt="Update Page">
+<img src="./public/imgs/update_page.png" alt="Update Page">
 
 
 <h2>Summary</h2>
@@ -23,9 +23,10 @@ Live Link: <a href="https://mikeramz86.github.io/morning_design_ritual_api/"> bu
 <p>Note: this current app is a demo on how the app will work. More features will be added soon.
 
 <h2> How to Use it</h2>
-<p> Step One: Mindful Morning: Look at the inspirational quote and think how you can live this quote today </p>
-<p> Step Two: Mindful Day: Looking at when the sunrose lets you know the day has already started. Looking at sunsets lets you know when the day will end and keep in mind to have a work life balance</p>
-<p> Step Three: Search for something that has been on your mind. Articles will appear and at least choose one to read. </p>
+<p> Click on Dashboard to see already demo prospects </p>
+<p> Click on add bunky to add a new prospect</p>
+<p> Click Update to change any of the inputs</p>
+<p> Click Delete to not see a prospect anymore</p>
 
 <h2> Technology Used</h2>
 <h3>Front End</h3>

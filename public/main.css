@@ -60,6 +60,11 @@ main {
     left: 16px;
 }
 
+.construction {
+    position: relative;
+
+}
+
 
 .space {
     display: block;

@@ -46,9 +46,6 @@ app.use('/logged_in', logged_in);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
-//main place to find profiles(5/1/18 maybe I should take this out)
-// app.use('/bunky', bunkyTotal);
-
 // A protected endpoint which needs a valid JWT to access it
 app.get('/api/protected', jwtAuth, (req, res) => {
   return res.json({

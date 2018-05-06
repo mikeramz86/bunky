@@ -35,7 +35,7 @@ fieldset {
 
 button {
   display: block;
-  width: 50%;
+  width: 25%;
   border-radius: 2px;
   padding: 15px;
   background-color: #21B2A8;
@@ -45,4 +45,9 @@ button {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.updateAccount {
+  font-size: 20px;
+  margin-bottom: 10px;
 }

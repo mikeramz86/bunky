@@ -44,7 +44,7 @@ function renderEdit(result) {
     return `
          <form id="${result._id}" class="as-form result">
             <fieldset name="Update">
-                <legend class="Sign-up">Update Account</legend>
+                <legend class="Sign-up updateAccount">Update Account</legend>
                 <div class="signupType update">
                     <label for="FirstName" required>First Name</label>
                     <input class="update First" value="${result.FirstName}" type="name" name='firstName' id='updateFirstName'  />
@@ -56,7 +56,7 @@ function renderEdit(result) {
                     <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' />
                 </div>
                 <div class="filters">
-                    <label for="budget" class "budget" required>Budget
+                    <label for="budget" class "budget"  required>Budget (required input) :
                         <input type="radio" name="budget" value="$1 - $500">
                         <label for="contactChoice1">$1 - $500</label>
                         <input id="budge1t" type="radio" name="budget" value="$500 - $1000"> $500 - $1000
@@ -66,7 +66,7 @@ function renderEdit(result) {
                 </div>
 
                 <div class="filters">
-                    <label for="roomates" required>Roomates</label>
+                    <label for="roomates" required>Roomates (required input) :</label>
                     <input id="Roomate1" type="radio" name="Roomate" value="1"> 1
                     <input id="Roomate2" type="radio" name="Roomate" value="Less than 2"> Less than 2
                     <input id="Roomate3" type="radio" name="Roomate" value="Less than 3"> Less than 3
@@ -74,7 +74,7 @@ function renderEdit(result) {
                 </div>     
 
                 <div class="filters">
-                    <label for="Culture" required>Culture</label>
+                    <label for="Culture" required>Culture (required input) :</label>
                     <input id="Culture1" type="radio" name="Culture" value="Communal"> Communal
                     <input id="Culture2" type="radio" name="Culture" value="Private"> Private
                 </div>

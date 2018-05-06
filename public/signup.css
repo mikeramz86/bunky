@@ -33,7 +33,7 @@ fieldset {
   margin: 0 auto 45px;
 }
 
-.as-form input {
+.as-form .type {
   display: block;
   width: 500px;
   height: auto;
@@ -56,11 +56,15 @@ fieldset {
   font-size: 35px;
 }
 
-input {
-  display: block;
+.budget {
+  display: inline;
 }
 
-.budget {
+.roomate {
+  display: inline;
+}
+
+.culture {
   display: inline;
 }
 

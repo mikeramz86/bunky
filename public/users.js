@@ -44,7 +44,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
             console.log(data);
             if(data) {
                 $('.js-success').prepend(
-                    `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully added a bunky! Now head to<a href='/dashboard.html'>Dashboard</a>!<span></div>`
+                    `<div class='sign-up-success'><span style='vertical-align: middle;'>Hurray! You have successfully added a bunky! Now head to <a href='/dashboard.html'>Dashboard</a>!<span></div>`
                 )
                 $('input[id="firstName"]').val('');
                 $('input[id="lastName"]').val('');

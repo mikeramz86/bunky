@@ -1,7 +1,5 @@
 'use strict';
 const { Strategy: LocalStrategy } = require('passport-local');
-// Assigns the Strategy export to the name JwtStrategy using object destructuring
-// https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Assigning_to_new_variable_names
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 const { User } = require('../models/users');
 const { JWT_SECRET } = require('../config');

@@ -1,4 +1,4 @@
-//route CRUD
+//SET UP FOR WHEN I ADD OTHER USERS 
 
 var express = require('express');
 var router = express.Router();

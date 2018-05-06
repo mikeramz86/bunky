@@ -15,8 +15,6 @@ const userSchema = mongoose.Schema({
   culture: {type: String, required: true},
 });
 
-// userSchema.virtual('fullName').get(function() {
-//   return `${this.FirstName} ${this.LastName}`.trim()});
 userSchema.virtual('usernameTrimmed').get(function() {
   return `${this.username}`.trim()});
 

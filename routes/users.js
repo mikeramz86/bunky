@@ -1,4 +1,5 @@
-//authorization
+//ENDPOINTS
+
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
@@ -161,7 +162,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-//-------------------------------------------PUT ENDPOINT ----
+//-------------------------------------------PUT ENDPOINT ---------------------------------
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = [
     'id', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture'];
@@ -192,7 +193,7 @@ router.put('/:id', jsonParser, (req, res) => {
     culture: req.body.culture
   };
 
-  // res.status(204).end();
+
 
 
   User.findByIdAndUpdate(req.body.id, updatedItem, { new: true })
@@ -207,7 +208,7 @@ router.put('/:id', jsonParser, (req, res) => {
 });
 
 
-//-----------------------------------------------------------Delete Endpint ----
+//-----------------------------------------------------------Delete Endpint ---------------------------
 router.delete("/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => {
@@ -218,5 +219,4 @@ router.delete("/:id", (req, res) => {
       res.status(500).json({ error: "ughhhhhhhh no no" });
     });
 });
-//---
 module.exports = router;

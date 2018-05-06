@@ -31,7 +31,7 @@ function tearDownDb() {
   });
 }
 
-// we use the Faker library to automatically create fake docs (trying it out)
+// we use the Faker library to automatically create fake docs (wanted to try it out)
 // generate placeholder values for Email Address, Password, first name, last name
 // and then we insert that data into mongo
 function seedUserData() {
@@ -75,11 +75,6 @@ describe('bunky posts API resource', function () {
   describe('GET endpoint', function () {
 
     it('should return all existing users', function () {
-      // strategy:
-      //    1. get back all posts returned by by GET request to `/posts`
-      //    2. prove res has right status, data type
-      //    3. prove the number of posts we got back is equal to number
-      //       in db.
       let res;
       return chai.request(app)
         .get('/users/for_tests')
@@ -172,11 +167,6 @@ describe('bunky posts API resource', function () {
       // Strategy: It should update a users' account info
       //
       let res;
-      // strategy:
-      //  1. Get an existing user from db
-      //  2. Make a PUT request to update that user
-      //  3. Prove updated user returned by request contains data we sent
-      //  4. Prove user in db is correctly updated
       const updateUser = {
         EmailAddress: 'mikeramzdesign@gmail.com',
         FirstName: 'Tom',
@@ -190,22 +180,15 @@ describe('bunky posts API resource', function () {
         .findOne()
         .then(function (randomUser) {
           updateUser.id = randomUser.id;
-          // console.log(updateUser.id, randomUser.id);
-          // make request then inspect it to make sure it reflects
-          // data we sent
-          // console.log(randomUser);
           return chai.request(app)
             .put(`/logged_in/for_tests/${randomUser.id}`)
             .send(updateUser);
         })
         .then(function (res) {
           expect(res).to.have.status(204);
-          // console.log(User.findById(updateUser.id));
           return User.findById(updateUser.id);
         })
         .then(function (user) {
-          // console.log(user);
-          // console.log(updateUser);
           expect(user.EmailAddress).to.equal(updateUser.EmailAddress);
           expect(user.FirstName).to.equal(updateUser.FirstName);
           expect(user.LastName).to.equal(updateUser.LastName);

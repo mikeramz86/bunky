@@ -10,7 +10,7 @@ var path = require('path');
 var logger = require('morgan');
 var users = require('./routes/users');
 var logged_in = require('./routes/logged_in');
-var bunkyTotal = require('./routes/bunky');
+
 
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 

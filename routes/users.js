@@ -1,4 +1,4 @@
-//ENDPOINTS
+//ENDPOINTS FOR GETTING DATA, ADDING NEW PEOPLE TO YOUR DATA, DELETING PEOPLE, AND UPDATING 
 
 var express = require('express');
 var router = express.Router();
@@ -27,7 +27,7 @@ router.get('/for_tests', (req, res) => {
     res.json({ err })
   }
 });
-//---------------------------- CREATE NEW USER ----------------------------------------
+//---------------------------- CREATE NEW BUNKY ----------------------------------------
 router.post('/', jsonParser, (req, res) => {
   const requiredFields = [ 'FirstName', 'LastName', 'EmailAddress','username','password','numRoomates', 'budget', 'culture'];
   const missingField = requiredFields.find(field => !(field in req.body));

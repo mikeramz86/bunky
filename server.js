@@ -20,8 +20,13 @@ const { PORT, DATABASE_URL } = require('./config');
 
 const app = express();
 
-// //CORS
-//Note: move around cors to see where it will break!!!
+//CORS (npm installed cors) also wrote out code
+// app.use(function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+//   next();
+// });
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,14 +47,6 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 //main place to find profiles(5/1/18 maybe I should take this out)
 app.use('/bunky', bunkyTotal);
-
-
-// app.use(function (req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
-//   next();
-// });
 
 // A protected endpoint which needs a valid JWT to access it
 app.get('/api/protected', jwtAuth, (req, res) => {

@@ -32,8 +32,9 @@ function renderResult(result) {
                     <div id="updateBudget" value="${result.budget}">Budget: ${result.budget}</div>
                     <div id="updateRoomates" value="${result.numRoomates}">Roomates: ${result.numRoomates}</div>
                     <div id="updateCulture" value="${result.culture}">Culture: ${result.culture}</div>
-                    <button class="js-permanent-delete-bunky loginbtn" type="submit">Delete</button>
                     <button class="js-update-bunky loginbtn">Update</button>
+                    <button class="js-permanent-delete-bunky loginbtn" type="submit">Delete</button>
+
                 </div
             </div>
             `
@@ -41,43 +42,48 @@ function renderResult(result) {
 
 function renderEdit(result) {
     return `
-    <form id="${result._id}" class="as-form">
-    <fieldset name="Update">
-        <legend class="Sign-up">Update Account</legend>
-        <div class="signupType">
-            <label for="FirstName" required>First Name</label>
-            <input class="update First" value="${result.FirstName}" type="name" name='firstName' id='updateFirstName'  />
+         <form id="${result._id}" class="as-form result">
+            <fieldset name="Update">
+                <legend class="Sign-up">Update Account</legend>
+                <div class="signupType update">
+                    <label for="FirstName" required>First Name</label>
+                    <input class="update First" value="${result.FirstName}" type="name" name='firstName' id='updateFirstName'  />
 
-            <label for="LastName" required>Last Name</label>
-            <input class="update Last" value="${result.LastName}" type="name" name='email' id='updateLastName' />
+                    <label for="LastName" required>Last Name</label>
+                    <input class="update Last" value="${result.LastName}" type="name" name='email' id='updateLastName' />
 
-            <label for="email" required>Email</label>
-            <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' />
-        </div>
+                    <label for="email" required>Email</label>
+                    <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' />
+                </div>
+                <div class="filters">
+                    <label for="budget" class "budget" required>Budget
+                        <input type="radio" name="budget" value="$1 - $500">
+                        <label for="contactChoice1">$1 - $500</label>
+                        <input id="budge1t" type="radio" name="budget" value="$500 - $1000"> $500 - $1000
+                        <input id="budget2" type="radio" name="budget" value="$1 - $500"> $1100 - $1500
+                        <input id="budget3" type="radio" name="budget" value="$1600+"> $1600+
+                    </label>
+                </div>
 
-        <label for="budget" class "budget" required>Budget
-            <input type="radio" name="budget" value="$1 - $500">
-            <label for="contactChoice1">$1 - $500</label>
-            <input id="budge1t" type="radio" name="budget" value="$500 - $1000"> $500 - $1000
-            <input id="budget2" type="radio" name="budget" value="$1 - $500"> $1100 - $1500
-            <input id="budget3" type="radio" name="budget" value="$1600+"> $1600+
-        </label>
+                <div class="filters">
+                    <label for="roomates" required>Roomates</label>
+                    <input id="Roomate1" type="radio" name="Roomate" value="1"> 1
+                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2"> Less than 2
+                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3"> Less than 3
+                    <input id="Roomate4" type="radio" name="Roomate" value="3+"> 3+
+                </div>     
 
-        <label for="roomates" required>Roomates</label>
-        <input id="Roomate1" type="radio" name="Roomate" value="1"> 1
-        <input id="Roomate2" type="radio" name="Roomate" value="Less than 2"> Less than 2
-        <input id="Roomate3" type="radio" name="Roomate" value="Less than 3"> Less than 3
-        <input id="Roomate4" type="radio" name="Roomate" value="3+"> 3+
+                <div class="filters">
+                    <label for="Culture" required>Culture</label>
+                    <input id="Culture1" type="radio" name="Culture" value="Communal"> Communal
+                    <input id="Culture2" type="radio" name="Culture" value="Private"> Private
+                </div>
 
-        <label for="Culture" required>Culture</label>
-        <input id="Culture1" type="radio" name="Culture" value="Communal"> Communal
-        <input id="Culture2" type="radio" name="Culture" value="Private"> Private
-
-        <button id="update" type="submit">Update</button>
-        <button id="cancel" type="submit">Cancel</button>
-    </fieldset>
-</form>
-    `
+                <button id="update" type="submit">Update</button>
+                <button id="cancel" type="submit">Cancel</button>
+            </fieldset>
+        </form>
+            `
 
 }
 
@@ -103,33 +109,10 @@ function displayData(data) {
 };
 
 
-
-// function saveData(data) {
-//     DATA = data
-// }
-
-
-
-
-
 /* ---------------------------------------UPDATE------------------------------------------- */
 
 $('.js-results').on("click", ".js-update-bunky", function (e) {
     e.preventDefault();
-
-
-
-    // console.log('id value is', $("#updateName").html());
-    // const updateName = $("#updateName").html();
-    // const updateEmail = $("#updateEmail").html();
-    // const updateBudget = $("#updateBudget").html();
-    // const updateRoomates = $("#updateRoomates").html();
-    // const updateCulture = $("#updateCulture").html();
-
-    // //navigation capture
-    // location.href="update.html";
-
-    // $('#updatefirstName').val('edd');
 
     console.log('finding specific id', $(e.target).parent().attr("id"));
     DATA.isEditing = $(e.target).parent().attr("id");
@@ -162,7 +145,7 @@ $('.js-results').on("click", "#update", function (e) {
     let update_culture = $("input[name=Culture]:checked").val();
 
     const bunkyId = $("form").attr("id");
-    console.log('this is form',$("form").attr("id"));
+    console.log('this is form', $("form").attr("id"));
 
     $.ajax({
         url: `/users/` + bunkyId,
@@ -197,9 +180,9 @@ $('.js-results').on("click", "#update", function (e) {
         }
     });
 
-  });
+});
 
-  $('.js-results').on("click", "#cancel", function (e) {
+$('.js-results').on("click", "#cancel", function (e) {
     e.preventDefault();
     DATA.isEditing = null;
     const showResults = DATA.data.map(item => {
@@ -211,7 +194,7 @@ $('.js-results').on("click", "#update", function (e) {
         }
     });
     $('.js-results').html(showResults);
-  });
+});
 
 /* ---------------------------------------DELETE------------------------------------------- */
 

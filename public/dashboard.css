@@ -1,0 +1,48 @@
+.js-results {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    max-width: 800px;
+ 
+ }
+ 
+ .result {
+     border: 1px solid grey;
+     padding: 15px;
+     margin: 10px;
+     width: 154;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 8px;
+ }
+
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+
+.update {
+    display: block;
+}
+
+.filters {
+  display: block;
+}
+
+button {
+  display: block;
+  width: 50%;
+  border-radius: 2px;
+  padding: 15px;
+  background-color: #21B2A8;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,69 @@
+Hi Mike,
+
+Thanks for submitting your app for review. You've done great work and I commend your efforts!
+
+Overall, I have recommended that you make some improvements to your app before approval. You have a good foundation but there are too many small issues that add up to the current iteration not being suitable yet for a portfolio. I have marked the particularly important ones which in my opinion should be resolved before approval with a ⚠️. All other notes are suggestions.
+
+I've included detailed feedback and suggestions below, along with screenshots, which I hope will be helpful. 
+
+Your screenshots and a more readable version of this feedback are available at https://www.dropbox.com/sh/w4s1k1dxjuii1p5/AADSyMllROVxWiTACFE_Td9ta?dl=0. Please download them within one week, as I may remove them after that time.
+
+If you'd like to discuss anything in more detail, you're welcome to get in touch with me via email at jharris@thinkful.com, or on Slack at @joshua_harris.
+
+All the best,
+🌿 Joshua
+
+# Concept & Content
+
+The overall concept is clear and you have done a good job describing what the app does.
+
+⚠️ There are several typos in the landing page copy. Recommend copy-editing.
+
+# Responsiveness
+
+⚠️ Neither the landing page nor the application respond on mobile devices. (1) This is mostly likely due to lack of a `viewport` meta tag.
+
+# Design/UX
+
+## Design/UX: Landing Page
+
+- Main image is distorted vertically on all screen sizes. For instance, the clock is not circular. (1)
+- Recommend removing the watermark from the main image if possible.
+- Recommend centering the tagline.
+- Recommend expanding your bullet-point list of features into feature sections. See https://simple.com for examples.
+- Recommend changing "Dashboard" button text to something like "Get Started."
+- Recommend changing cursor to pointer when hovering over buttons, such as the Dashboard button on the landing page, and other interactable elements on desktop browsers.
+- Recommend removing the About and Sign Up links until they are implemented.
+
+- Recommend following the conventional landing page structure of: 
+	- Header with authentication buttons, 
+	- Title and brief tagline against a full-screen image, 
+	- Registration or Get Started button,
+	- At least one feature section highlighting what your application does and how it is useful for your target audience. 
+	- Examples:
+		- [Duolingo](https://www.duolingo.com)
+		- [InVision](https://invisionapp.com)
+		- [Trello](https://trello.com)
+		- [Simple](https://simple.com)
+
+## Design/UX: Application
+
+- Recommend making the "Add bunky" button more prominent (for instance, by adding a bright background color and rounded edges) since it is a primary action on the screen. It could also go in the main content area rather than the header.
+- ⚠️ Header styles disappear on the Add Bunky screen.
+- Recommend adding additional spacing between header and first listing on dashboard.
+
+# Functionality
+
+- Navigation between screens currently triggers a page reload. Recommend refactoring the application into a Single-Page App to demonstrate modern development practices to potential employers.
+- ⚠️ Validation message on the Add Bunky screen displays "login or try a different email" even when the validation error has to do with another field - in this case, not having selected a Culture or having a password that is long enough. Recommend fine-tuning validation messages and displaying them closer to the fields that they apply to. (3)
+- Recommend automatically directing a new user to the dashboard rather than making them click a Dashboard link.
+- Recommend adding a confirmation prompt when deleting a Bunky.
+- ⚠️ Updating a Bunky has no default selections for the Budget, Roommates, or Culture fields so all must be reselected. Recommend preserving the current values for these fields. (4)
+- User can remove previously required fields (name, email) from a Bunky during update. (5) 
+
+## Functionality Tested
+
+- ✅ View Bunkies
+- ✅ Add a Bunky
+- ✅ Update a Bunky
+- ✅ Delete a Bunky

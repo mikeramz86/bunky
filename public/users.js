@@ -55,6 +55,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
                 $('input[id="numRoomates"]').val('');
                 $('input[id="culture"]').val('');
             }
+            window.location.href = "dashboard.html";
         },
         error: (...rest) => {
             $('.js-success').prepend(

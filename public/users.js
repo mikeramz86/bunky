@@ -2,7 +2,7 @@
 
 const API_URL = 'https://murmuring-castle-28514.herokuapp.com/users';
 
-// ---------------------------------Create New Bunky---------------------------------
+// ---------------------------------Create New Bunky (POST ENDPOINT)---------------------------------
 $('.js-submit-form').submit(event => {
     event.preventDefault();
     newUser();

@@ -1,8 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
 body {
-  background-color: #21B2A8;
-  color: black;
-  font-size: 16px;
   font-family: Fredoka One;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+nav {
+  background-color: #1F9BA6;
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  margin-right: 20px;
+}
+
+.logo {
+  display: inline-block;
 }
 
 fieldset {
@@ -13,6 +49,7 @@ fieldset {
 
 .as-form {
   display: block;
+  margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
   width: 600px;
@@ -73,7 +110,7 @@ fieldset {
   background-color: #80DC90;
 }
 
-.footer {
+/* .footer {
   text-align: center;
   color: white;
   margin: 20px auto;
@@ -87,4 +124,4 @@ fieldset {
 
 .footer a:hover {
   color: grey; 
-}
+} */

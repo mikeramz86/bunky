@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="sylesheet" type="text/css" href="resp-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="dashboard.css">
-    <!-- <link rel="stylesheet" type="text/css" href="login.css"> -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 </head>
@@ -25,11 +23,13 @@
         </div>
     </nav>
 
-    <main role="main" class="main">
-
+    <main role="main" class="add-bunky .col-12">
+        <form>
+            <button class="homebtn" id="myBtn" type="submit" formaction="addbunky.html">Add bunky</button>
+        </form>
     </main>
 
-    <div class="js-results .col-12" aria-live="assertive" >results</div>
+    <div class="js-results .col-12" aria-live="assertive">results</div>
 
 
     <script type="text/javascript" src="main.js"></script>

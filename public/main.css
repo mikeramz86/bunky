@@ -42,7 +42,7 @@ nav {
 
 
 main {
-    display: block;
+    /* display: block; */
     position: absolute;
     margin-top: 50px;
 
@@ -52,16 +52,15 @@ main {
     width: 100%;
     height: 400px; 
     position: relative;
+    text-align: center;
 }
 
 .top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
-}
-
-.construction {
-    position: relative;
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 10px;
+    width: 100%
 
 }
 
@@ -83,8 +82,8 @@ main {
     text-align: center;
     padding: 10px;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
     border-radius: 8px;
     background-color: #21B2A8;
     font-size: 20px;
@@ -109,9 +108,7 @@ a, a:visited, a:hover, a:active {
     color: inherit;
 }
 
-.name {
-    border-bottom: 2px solid grey;
-}
+
 
 footer {
     font-family: Arial, Helvetica, sans-serif;
@@ -129,5 +126,10 @@ li {
     font-size: 14px;
     margin-left: 10px;
     list-style-type: circle;
+ }
+
+ .get-started button:hover {
+    background-color: #80DC90;
+
  }
 

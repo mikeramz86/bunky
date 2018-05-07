@@ -1,9 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  font-family: Fredoka One;
+}
+
+nav {
+  background-color: #1F9BA6;
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  margin-right: 20px;
+}
+
+.logo {
+  display: inline-block;
+}
+
 .js-results {
     position: relative;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
+    margin-top: 30px;
     max-width: 800px;
  
  }
@@ -49,7 +81,30 @@ button {
   margin-right: auto;
 }
 
+button button:hover {
+  background-color: #80DC90;
+}
+
 .updateAccount {
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+.name {
+  border-bottom: 2px solid grey;
+}
+
+.add-bunky {
+  margin-top: 70px;
 }

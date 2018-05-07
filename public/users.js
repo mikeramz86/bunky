@@ -57,17 +57,20 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
             }
             window.location.href = "dashboard.html";
         },
+        // error: (...rest) => {
+        //     $('.js-success').prepend(
+        //         `
+        //             <div class='sign-up-failure'>
+        //                 <p>Create a user failed.</p>
+        //                 <p>Login or try a different email</p>
+        //             </div>
+        //         `
+        //     )
+        // }
         error: (...rest) => {
-            $('.js-success').prepend(
-                `
-                    <div class='sign-up-failure'>
-                        <p>Create a user failed.</p>
-                        <p>Login or try a different email</p>
-                    </div>
-                `
-            )
+            alert("Add bunky failed. Please make sure your password is at least 10 characters long. Please make sure you selected all choices");
         }
-    })
+    });
 }
 
 

@@ -21,13 +21,13 @@ const { PORT, DATABASE_URL } = require('./config');
 const app = express();
 
 //CORS (npm installed cors) also wrote out code
-app.use(cors());
-// app.use(function (req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
-//   next();
-// });
+// app.use(cors());
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+  next();
+});
 
 
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,6 +1,7 @@
 'use strict';
 
 // const API_URL = 'https://murmuring-castle-28514.herokuapp.com/users';
+const API_URL = '/users';
 
 // ---------------------------------Create New Bunky (POST ENDPOINT)---------------------------------
 $('.js-submit-form').submit(event => {
@@ -26,6 +27,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
     console.log(FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture);
     // $('.sign-up-failure').remove();
     $.ajax({
+        //edited 5/7
         url: API_URL,
         type: 'POST',
         dataType: 'json',

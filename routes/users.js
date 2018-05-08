@@ -25,6 +25,16 @@ router.get('/for_tests', (req, res) => {
     res.json({ err })
   }
 });
+//added get user id
+// router.get('/:id', (req, res) => {
+//   try {
+//     User.find({}).then(allusers => {
+//       res.json({ allusers })
+//     })
+//   } catch (err) {
+//     res.json({ err })
+//   }
+// });
 //---------------------------- CREATE NEW USER ----------------------------------------
 router.post('/', jsonParser, (req, res) => {
   const requiredFields = [ 'FirstName', 'LastName', 'EmailAddress','username','password','numRoomates', 'budget', 'culture'];

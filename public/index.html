@@ -14,36 +14,51 @@
 </head>
 
 <body>
-    <nav role="navigation" clas=".col-12">
-        <div class="logo">
-            <h1>
-                <a href="index.html">bunky</a>
-            </h1>
-        </div>
-        <div class="menu">
-            <a href="dashboard.html">Dashboard</a>
+    <nav role="navigation" class="row">
+        <div class=".col-12">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">bunky</a>
+                </h1>
+            </div>
+            <div class="menu">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
         </div>
     </nav>
-<!-- class=".col-12" -->
-    <main role="main" class="main">
 
-        <div class="couches .col-12">
-            <img src="./imgs/twochairs.jpg" class="chair" alt="two chair image">
-            <h3 class="top-left">connecting people together under one roof</h3>
+    <main role="main" class="main">
+        <div class="row">
+            <div class="couches .col-12">
+                <img src="./imgs/twochairs.jpg" class="chair" alt="two chair image">
+                <h3 class="top-left">connecting people together under one roof</h3>
+            </div>
+        </div>
+
+        <div class="row space">
+
+            <div class=".col-6">
+                <div class="bullets">
+                    <h3>---bunky: finding your perfect roommate---</h3>
+                    <ul>
+                        <li type="square">add their contact information</li>
+                        <li type="square">know what their budget is</li>
+                        <li type="square">understand how many roommates they are open to</li>
+                        <li type="square">take out prospects from your dashboard</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=".col-6">
+                <div class="sample">
+                    <p>Use your dashboard to list yourprospects</p>
+                    <img src="./imgs/bunky.png" class="bunky" alt="bunky listing">
+                </div>
+            </div>
 
         </div>
 
-        <div class="space .col-12">
-            <h3>---bunky: finding your perfect roommate---</h3>
-            <p>bunky is a platform to track prospective roommates</p>
-
-            <ul>
-                <li type="square">add their contact information</li>
-                <li type="square">know what their budget is</li>
-                <li type="square">understanding how many roommates they are open too</li>
-                <li type="square">see if they're looking for the right space as your are</li>
-            </ul>
-
+        <div class="start .col-12">
             <p>Click here to try it out!</p>
             <form class="get-started">
                 <button class="homebtn" id="myBtn" type="submit" formaction="dashboard.html">Get Started</button>

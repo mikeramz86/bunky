@@ -1,7 +1,7 @@
 {
   "name": "bunky",
   "version": "1.0.0",
-  "description": "roomate app",
+  "description": "roommate app",
   "main": "index.js",
   "scripts": {
     "test": "mocha --exit"

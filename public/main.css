@@ -31,6 +31,10 @@ nav {
     top: 10px;
 }
 
+h1 {
+    margin-top: 10px;
+}
+
 h2 {
     font-size: 30px;
     margin-top: 20px;
@@ -42,6 +46,10 @@ h2 {
      position: relative;
      margin-bottom: 20px;
      color: white;
+ }
+
+ h4 {
+    margin-bottom: 20px;
  }
 
 
@@ -184,7 +192,7 @@ li {
 
  .centered {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 42%;
     /* transform: translate(-55%, -55%); */
     margin-left: auto;

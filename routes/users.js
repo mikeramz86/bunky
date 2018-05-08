@@ -1,5 +1,3 @@
-//ENDPOINTS FOR GETTING DATA, ADDING NEW PEOPLE TO YOUR DATA, DELETING PEOPLE, AND UPDATING 
-
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
@@ -27,7 +25,7 @@ router.get('/for_tests', (req, res) => {
     res.json({ err })
   }
 });
-//---------------------------- CREATE NEW BUNKY ----------------------------------------
+//---------------------------- CREATE NEW USER ----------------------------------------
 router.post('/', jsonParser, (req, res) => {
   const requiredFields = [ 'FirstName', 'LastName', 'EmailAddress','username','password','numRoomates', 'budget', 'culture'];
   const missingField = requiredFields.find(field => !(field in req.body));
@@ -162,7 +160,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-//-------------------------------------------PUT ENDPOINT ---------------------------------
+//-------------------------------------------PUT ENDPOINT ----
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = [
     'id', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture'];
@@ -193,7 +191,7 @@ router.put('/:id', jsonParser, (req, res) => {
     culture: req.body.culture
   };
 
-
+  // res.status(204).end();
 
 
   User.findByIdAndUpdate(req.body.id, updatedItem, { new: true })
@@ -208,7 +206,7 @@ router.put('/:id', jsonParser, (req, res) => {
 });
 
 
-//-----------------------------------------------------------Delete Endpint ---------------------------
+//-----------------------------------------------------------Delete Endpint ----
 router.delete("/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => {
@@ -219,4 +217,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json({ error: "ughhhhhhhh no no" });
     });
 });
+//---
 module.exports = router;

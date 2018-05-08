@@ -23,7 +23,7 @@ function getUsers(callback) {
 
 /* ---------------------------------------RENDER RESULTS-------------------------------------------- */
 function renderResult(result) {
-    console.log(result._id);
+    // console.log(`checking for render results._id`,result._id);
     return `
             <div class="result .col-3" > 
                 <div class="name">
@@ -44,8 +44,9 @@ function renderResult(result) {
 };
 
 function renderEdit(result) {
+    console.log(`checking for results:`,result._id);
     return `
-         <form id="${result._id}" class="as-form result">
+         <form id="${result._id}" class="editForm as-form result">
             <fieldset name="Update">
                 <legend class="Sign-up updateAccount">Update Account</legend>
                 <div class="signupType update">
@@ -118,7 +119,7 @@ function displayData(data) {
 $('.js-results').on("click", ".js-update-bunky", function (e) {
     e.preventDefault();
 
-    console.log('finding specific id', $(e.target).parent().attr("id"));
+    // console.log('finding specific id', $(e.target).parent().attr("id"));
     DATA.isEditing = $(e.target).parent().attr("id");
 
     console.log(DATA.data);
@@ -148,8 +149,9 @@ $('.js-results').on("click", "#update", function (e) {
     let update_numRoomates = $("input[name=Roomate]:checked").val();
     let update_culture = $("input[name=Culture]:checked").val();
 
-    const bunkyId = $("form").attr("id");
+    const bunkyId = $(".editForm").attr("id");
     console.log('this is form', $("form").attr("id"));
+    console.log('test');
 
     $.ajax({
         url: `/users/` + bunkyId,

@@ -96,11 +96,11 @@ main {
 
 .bullets {
     /* border: 1px solid grey; */
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 8px;
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 
 }
 

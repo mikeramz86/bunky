@@ -28,7 +28,7 @@ nav {
   left: 0;
   right: 0;
   padding: 10px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .menu {
@@ -50,10 +50,9 @@ fieldset {
 
 .as-form {
   display: block;
-  margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  /* width: 100%; */
+  width: 600px;
   padding: 40px;
   color: black;
   background-color: white;
@@ -71,9 +70,9 @@ fieldset {
   margin: 0 auto 45px;
 }
 
-.as-form .type {
+.as-form input {
   display: block;
-  /* width: 500px; */
+  width: 500px;
   height: auto;
   font-size: 18px;
   text-align: left;
@@ -94,16 +93,11 @@ fieldset {
   font-size: 35px;
 }
 
+input {
+  display: block;
+}
 
 .budget {
-  display: inline;
-}
-
-.roomate {
-  display: inline;
-}
-
-.culture {
   display: inline;
 }
 
@@ -111,3 +105,18 @@ fieldset {
   background-color: #80DC90;
 }
 
+.footer {
+  text-align: center;
+  color: white;
+  margin: 20px auto;
+  border: 0;
+  padding: 0;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+  color: grey; 
+}

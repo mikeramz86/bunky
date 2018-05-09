@@ -83,8 +83,11 @@ main {
     position:absolute;
     text-align:center;
     top: 80px;
-    width: 100%
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
+
+
 
 
 
@@ -159,6 +162,7 @@ main {
     margin-right: auto;
     left: 0;
     right: 0;
+    cursor: pointer;
 }
 
 .lastb {

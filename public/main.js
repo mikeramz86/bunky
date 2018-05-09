@@ -89,7 +89,8 @@ function renderEdit(result) {
             <div class="js-upfail'"></div>
         </form>
             `
-
+                // add hover color
+                //chance cursor
 }
 
 
@@ -203,9 +204,12 @@ $('.js-results').on("click", "#cancel", function (e) {
 });
 
 /* ---------------------------------------DELETE------------------------------------------- */
-
+//add are you sure feature before deleting?
 $('.js-results').on("click", ".js-permanent-delete-bunky", function (e) {
     // console.log(bunkyId);
+    //create function alert if they want to delete person
+    //if yes use ajax delete call
+    //if no go back to back to dashboard
     console.log('finding specific id', $(e.target).parent().attr("id"));
     const bunkyId = $(e.target).parent().attr("id");
     $.ajax({

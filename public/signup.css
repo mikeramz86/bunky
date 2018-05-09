@@ -71,9 +71,13 @@ fieldset {
   margin: 0 auto 45px;
 }
 
+label {
+  text-align: center;
+}
+
 .as-form .type {
   display: block;
-  /* width: 500px; */
+  width: 300px;
   height: auto;
   font-size: 18px;
   text-align: left;
@@ -86,7 +90,7 @@ fieldset {
 
 .as-form button {
   display: block;
-  width: 100%;
+  /* width: 100%; */
   border-radius: 2px;
   padding: 15px;
   background-color: #21B2A8;

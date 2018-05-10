@@ -22,7 +22,7 @@ a, a:visited, a:hover, a:active {
 
 nav {
   background-color: #1F9BA6;
-  position: absolute;
+  position: fixed;
   color: white;
   top: 0;
   left: 0;
@@ -43,21 +43,32 @@ nav {
 }
 
 fieldset {
+  /* width: 100%;
+  position: relative;
   padding: 0;
+  border: 0; */
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: 100px; */
   border: 0;
-  margin: 0;
+  padding: 100px;
+  background-color: white;
+  border-radius: 8px;  
+  /* max-width: 600px; */
 }
 
 .as-form {
-  display: block;
-  margin-top: 20px;
+  /* position: relative;
+  display: block; */
+  margin-top: 100px;
   margin-right: auto;
   margin-left: auto;
-  width: 100%;
-  padding: 40px;
+  /* width: 100%; */
+  /* padding: 40px;
   color: black;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 2px; */
+  /* max-width: 600px; */
 }
 
 .as-form legend {
@@ -67,14 +78,14 @@ fieldset {
   font-weight: 300; 
   color: #565656;
   text-align: center;
-  letter-spacing: 0;
-  margin: 0 auto 45px;
+  margin-top: 100px;
+  /* letter-spacing: 0; */
+  /* margin: 0 auto 45px; */
 }
 
-label {
-  text-align: center;
+.title {
+  margin-top: 100px;
 }
-
 .as-form .type {
   display: block;
   width: 300px;
@@ -85,17 +96,21 @@ label {
   border: 2px solid grey;
   border-radius: 3px;
   background: white;
-  margin: 10px auto 20px;
+  margin: 20px;
+  /* margin: 10px auto 20px; */
 }
 
 .as-form button {
   display: block;
-  /* width: 100%; */
-  border-radius: 2px;
+  /* width: 200px; */
+  border-radius: 8px;
   padding: 15px;
   background-color: #21B2A8;
   color: rgb(255, 255, 255);
   font-size: 35px;
+  /* max-width: 100%; */
+  display: block;
+
 }
 
 

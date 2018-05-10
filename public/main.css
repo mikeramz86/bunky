@@ -12,7 +12,7 @@ body {
 nav {
     background-color: #1F9BA6;
     display: block;
-    position: absolute;
+    position: fixed;
     color: white;
     height: 200px;
     width: 100%;

@@ -69,7 +69,7 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
         //     )
         // }
         error: (...rest) => {
-            alert("Add bunky failed. Please make sure your password is at least 10 characters long. Please make sure you selected all choices");
+            alert("Add bunky failed. Please make sure your password is at least 10 characters long. Please make sure you selected all the preferences");
         }
     });
 }

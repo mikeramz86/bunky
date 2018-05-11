@@ -24,7 +24,6 @@ function getUsers(callback) {
 
 /* ---------------------------------------RENDER RESULTS-------------------------------------------- */
 function renderResult(result) {
-    // console.log(`checking for render results._id`,result._id);
     return `
             <div class="result .col-3" > 
                 <div class="name">
@@ -152,8 +151,6 @@ $('.js-results').on("click", "#update", function (e) {
     let update_culture = $("input[name=Culture]:checked").val();
 
     const bunkyId = $(".editForm").attr("id");
-    console.log('this is form', $("form").attr("id"));
-    console.log('test');
 
     if (update_firstName === "" || update_lastName === "" || update_email === "") {
             alert("Must fill out all required fields")
@@ -227,7 +224,6 @@ $('.js-results').on("click", ".js-permanent-delete-bunky", function (e) {
                 window.location.href = `/dashboard.html?delete=true`
                 //doesn't display on dashboard.html
                 $(".delete-alert-danger2").text(result.message)
-                console.log(result);
             },
             error: (...rest) => {
                 $('.js-delfail').prepend(

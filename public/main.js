@@ -62,25 +62,25 @@ function renderEdit(result) {
                 </div>
                 <div class="filters">
                     <label for="budget" class "budget"  required>Budget (required input):     </label>
-                        <input id="budge1t" type="radio" name="budget" value="$1 - $500" ${checked('$1 - $500',result.budget)}> $1 - $500                     
-                        <input id="budge1t" type="radio" name="budget" value="$500 - $1000"${checked('$500 - $1000',result.budget)} > $500 - $1000
-                        <input id="budget2" type="radio" name="budget" value="$1000 - $1600" ${checked('$1000 - $1600',result.budget)}> $1100 - $1600
-                        <input id="budget3" type="radio" name="budget" value="$1600+" ${checked('$1600+',result.budget)}> $1600+
+                        <input id="budge1t" type="radio" name="budget" value="$1 - $500" ${checked('$1 - $500', result.budget)}> $1 - $500                     
+                        <input id="budge1t" type="radio" name="budget" value="$500 - $1000"${checked('$500 - $1000', result.budget)} > $500 - $1000
+                        <input id="budget2" type="radio" name="budget" value="$1000 - $1600" ${checked('$1000 - $1600', result.budget)}> $1100 - $1600
+                        <input id="budget3" type="radio" name="budget" value="$1600+" ${checked('$1600+', result.budget)}> $1600+
       
                 </div>
 
                 <div class="filters">
                     <label for="roomates" required>Roomates (required input) :</label>
-                    <input id="Roomate1" type="radio" name="Roomate" value="1" ${checked('1',result.numRoomates)}> 1
-                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2" ${checked('Less than 2',result.numRoomates)}> Less than 2
-                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3" ${checked('Less than 3',result.numRoomates)}> Less than 3
-                    <input id="Roomate4" type="radio" name="Roomate" value="3+" ${checked('3+',result.numRoomates)}> 3+
+                    <input id="Roomate1" type="radio" name="Roomate" value="1" ${checked('1', result.numRoomates)}> 1
+                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2" ${checked('Less than 2', result.numRoomates)}> Less than 2
+                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3" ${checked('Less than 3', result.numRoomates)}> Less than 3
+                    <input id="Roomate4" type="radio" name="Roomate" value="3+" ${checked('3+', result.numRoomates)}> 3+
                 </div>     
 
                 <div class="filters">
                     <label for="Culture" required>Culture (required input) :</label>
-                    <input id="Culture1" type="radio" name="Culture" value="Communal" ${checked('Communal',result.culture)}> Communal
-                    <input id="Culture2" type="radio" name="Culture" value="Private" ${checked('Private',result.culture)}> Private
+                    <input id="Culture1" type="radio" name="Culture" value="Communal" ${checked('Communal', result.culture)}> Communal
+                    <input id="Culture2" type="radio" name="Culture" value="Private" ${checked('Private', result.culture)}> Private
                 </div>
 
                 <button id="update" type="submit">Update</button>
@@ -207,34 +207,39 @@ $('.js-results').on("click", "#cancel", function (e) {
 /* ---------------------------------------DELETE------------------------------------------- */
 //add are you sure feature before deleting?
 $('.js-results').on("click", ".js-permanent-delete-bunky", function (e) {
+    e.preventDefault();
     // console.log(bunkyId);
     //create function alert if they want to delete person
     //if yes use ajax delete call
     //if no go back to back to dashboard
-    console.log('finding specific id', $(e.target).parent().attr("id"));
-    const bunkyId = $(e.target).parent().attr("id");
-    $.ajax({
-        url: `/users/` + bunkyId,
-        type: 'DELETE',
-        dataType: 'json',
-        success: function (result) {
-            //then return to dashboard.html
-            window.location.href = `/dashboard.html?delete=true`
-            //doesn't display on dashboard.html
-            $(".delete-alert-danger2").text(result.message)
-            console.log(result);
-        },
-        error: (...rest) => {
-            $('.js-delfail').prepend(
-                `
-                    <div class='upate-failure'>
-                        <p>update failed.</p>
-                        <p>please try again</p>
-                    </div>
-                `
-            ) 
-        }
-    });
+    if (confirm("Are you sure?")) {
+
+    
+        console.log('finding specific id', $(e.target).parent().attr("id"));
+        const bunkyId = $(e.target).parent().attr("id");
+        $.ajax({
+            url: `/users/` + bunkyId,
+            type: 'DELETE',
+            dataType: 'json',
+            success: function (result) {
+                //then return to dashboard.html
+                window.location.href = `/dashboard.html?delete=true`
+                //doesn't display on dashboard.html
+                $(".delete-alert-danger2").text(result.message)
+                console.log(result);
+            },
+            error: (...rest) => {
+                $('.js-delfail').prepend(
+                    `
+                        <div class='upate-failure'>
+                            <p>update failed.</p>
+                            <p>please try again</p>
+                        </div>
+                    `
+                )
+            }
+        });
+    }
 });
 
 

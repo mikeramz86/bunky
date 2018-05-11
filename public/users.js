@@ -18,10 +18,21 @@ function newUser() {
     let signup_budget = $("input[name=budget]:checked").val();
     let signup_numRoomates = $("input[name=Roomate]:checked").val();
     let signup_culture = $("input[name=Culture]:checked").val();
+
+    if (signup_password.length < 10) {
+        alert("make sure password is more than 10 characters!")
+    } else if (signup_budget === undefined) {
+        alert("make sure to choose budget preference")
+    } else if (signup_numRoomates === undefined) {
+        alert("make sure to choose number of roomates preference")
+    } else if (signup_culture === undefined) {
+        alert("make sure to choose culture preference")
+    } else
+
     postNewUser(signup_firstName, signup_lastName, signup_username, signup_password, signup_email, signup_budget,signup_numRoomates,signup_culture);
-    // console.log(signup_password);
-    // console.log($('input[id="psw"]'));
 }
+
+
 
 function postNewUser (FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture) {
     console.log(FirstName, LastName, username, password, EmailAddress, budget, numRoomates,culture);
@@ -58,18 +69,9 @@ function postNewUser (FirstName, LastName, username, password, EmailAddress, bud
             }
             window.location.href = "dashboard.html";
         },
-        // error: (...rest) => {
-        //     $('.js-success').prepend(
-        //         `
-        //             <div class='sign-up-failure'>
-        //                 <p>Create a user failed.</p>
-        //                 <p>Login or try a different email</p>
-        //             </div>
-        //         `
-        //     )
-        // }
+
         error: (...rest) => {
-            alert("Add bunky failed. Please make sure your password is at least 10 characters long. Please make sure you selected all the preferences");
+            alert("Add bunky failed. Please contact bunky support");
         }
     });
 }

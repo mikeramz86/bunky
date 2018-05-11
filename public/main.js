@@ -45,9 +45,6 @@ function renderResult(result) {
 };
 
 function renderEdit(result) {
-    // console.log(`checking for results:`,result._id);
-    // console.log('this is preval', preVal);
-    // console.log('this is budget', preVal.budget['one']);
     console.log('this is result', result);
     return `
          <form id="${result._id}" class="editForm as-form result">
@@ -55,17 +52,17 @@ function renderEdit(result) {
                 <legend class="Sign-up updateAccount">Update Account</legend>
                 <div class="signupType update">
                     <label for="FirstName" required>First Name</label>
-                    <input class="update First" value="${result.FirstName}" type="name" name='firstName' id='updateFirstName'  />
+                    <input class="update First" value="${result.FirstName}" type="firstname" name='firstName' id='updateFirstName'  required/>
 
                     <label for="LastName" required>Last Name</label>
-                    <input class="update Last" value="${result.LastName}" type="name" name='email' id='updateLastName' />
+                    <input class="update Last" value="${result.LastName}" type="lastname" name='email' id='updateLastName' required/>
 
                     <label for="email" required>Email</label>
-                    <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' />
+                    <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' required/>
                 </div>
                 <div class="filters">
                     <label for="budget" class "budget"  required>Budget (required input):     </label>
-                        <input id="budge1t" type="radio" name="budget" value="$100 - $500" ${checked('$1 - $500',result.budget)}> $1 - $500                     
+                        <input id="budge1t" type="radio" name="budget" value="$1 - $500" ${checked('$1 - $500',result.budget)}> $1 - $500                     
                         <input id="budge1t" type="radio" name="budget" value="$500 - $1000"${checked('$500 - $1000',result.budget)} > $500 - $1000
                         <input id="budget2" type="radio" name="budget" value="$1000 - $1600" ${checked('$1000 - $1600',result.budget)}> $1100 - $1600
                         <input id="budget3" type="radio" name="budget" value="$1600+" ${checked('$1600+',result.budget)}> $1600+

@@ -189,9 +189,9 @@ a, a:visited, a:hover, a:active {
 
 .bunky {
     margin-top: 20px;
-    max-width: 600px;
-    margin-right: auto;
-    margin-left: auto;
+    width: 700px;
+    /* margin-right: auto;
+    margin-left: auto; */
 }
 
 

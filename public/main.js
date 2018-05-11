@@ -176,7 +176,6 @@ $('.js-results').on("click", "#update", function (e) {
             success: function (data) {
                 if (data) {
                     console.log(data);
-                    // callback(data);
                     return $(getUsers(displayData));
                 }
             },

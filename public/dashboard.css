@@ -11,12 +11,14 @@ body {
 
 nav {
   background-color: #1F9BA6;
-  position: absolute;
+  position: fixed;
   color: white;
   top: 0;
   left: 0;
   right: 0;
   padding: 10px;
+  z-index: 2;
+
 }
 
 .menu {

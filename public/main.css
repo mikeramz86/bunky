@@ -51,6 +51,8 @@ h2 {
 
  h4 {
     margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+
  }
 
 
@@ -100,16 +102,23 @@ main {
     padding: 20px;
     background-color: #E6F4F1;
 
+
 }
 
 .bullets {
-    /* border: 1px solid grey; */
-    /* padding: 20px; */
+    margin-top: 20px;
     border-radius: 8px;
-    width: 50%;
-    /* margin-left: auto;
-    margin-right: auto; */
+    /* width: 50%; */
+    font-family: 'Poppins', sans-serif;
 
+
+
+}
+
+.talking {
+    float: left;
+    width: 100px;
+    margin-right: 20px;
 }
 
 .start{

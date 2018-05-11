@@ -1,6 +1,5 @@
 // 'use strict';
 
-// const API_URL = 'https://murmuring-castle-28514.herokuapp.com/users';
 const API_URL = '/users';
 
 // ---------------------------------Create New Bunky (POST ENDPOINT)---------------------------------

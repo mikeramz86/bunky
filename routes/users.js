@@ -25,16 +25,7 @@ router.get('/for_tests', (req, res) => {
     res.json({ err })
   }
 });
-//added get user id
-// router.get('/:id', (req, res) => {
-//   try {
-//     User.find({}).then(allusers => {
-//       res.json({ allusers })
-//     })
-//   } catch (err) {
-//     res.json({ err })
-//   }
-// });
+
 //---------------------------- CREATE NEW USER ----------------------------------------
 router.post('/', jsonParser, (req, res) => {
   const requiredFields = [ 'FirstName', 'LastName', 'EmailAddress','username','password','numRoomates', 'budget', 'culture'];
@@ -170,7 +161,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-//-------------------------------------------PUT ENDPOINT ----
+//-------------------------------------------PUT ENDPOINT ----------------------------------
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = [
     'id', 'FirstName', 'LastName', 'EmailAddress', 'numRoomates', 'budget', 'culture'];
@@ -216,7 +207,7 @@ router.put('/:id', jsonParser, (req, res) => {
 });
 
 
-//-----------------------------------------------------------Delete Endpint ----
+//-----------------------------------------------------------Delete Endpint ---------------------
 router.delete("/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => {

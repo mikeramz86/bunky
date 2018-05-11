@@ -52,7 +52,7 @@ Live Link: <a href="https://murmuring-castle-28514.herokuapp.com/index.html"> bu
 <li>Ability to add notes for each prospect</li>
 <li>Ability to message prospects within the app</li>
 <li>Ability to add and search through filters</li>
-<li>Styling errors</li>
+<li>Styling errors more visually</li>
 <li>Filter for specific locations</li>
 <li>End result to hopefully connect this to apartment/housing listings</li>
 

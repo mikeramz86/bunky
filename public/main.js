@@ -208,10 +208,7 @@ $('.js-results').on("click", "#cancel", function (e) {
 //add are you sure feature before deleting?
 $('.js-results').on("click", ".js-permanent-delete-bunky", function (e) {
     e.preventDefault();
-    // console.log(bunkyId);
-    //create function alert if they want to delete person
-    //if yes use ajax delete call
-    //if no go back to back to dashboard
+
     if (confirm("Are you sure?")) {
 
     

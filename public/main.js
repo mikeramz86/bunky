@@ -64,7 +64,7 @@ function renderEdit(result) {
                     <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' />
                 </div>
                 <div class="filters">
-                    <label for="budget" class "budget"  required>Budget (required input):             </label>
+                    <label for="budget" class "budget"  required>Budget (required input):     </label>
                         <input id="budge1t" type="radio" name="budget" value="$100 - $500" ${checked('$1 - $500',result.budget)}> $1 - $500                     
                         <input id="budge1t" type="radio" name="budget" value="$500 - $1000"${checked('$500 - $1000',result.budget)} > $500 - $1000
                         <input id="budget2" type="radio" name="budget" value="$1000 - $1600" ${checked('$1000 - $1600',result.budget)}> $1100 - $1600
@@ -74,16 +74,16 @@ function renderEdit(result) {
 
                 <div class="filters">
                     <label for="roomates" required>Roomates (required input) :</label>
-                    <input id="Roomate1" type="radio" name="Roomate" value="check" checked=${preVal.numRoomates['1']}> 1
-                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2" checked=${preVal.numRoomates['Less than 2']}> Less than 2
-                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3" checked=${preVal.numRoomates['Less than 3']}> Less than 3
-                    <input id="Roomate4" type="radio" name="Roomate" value="3+" checked="${preVal.numRoomates['+3']}"> 3+
+                    <input id="Roomate1" type="radio" name="Roomate" value="1" ${checked('1',result.numRoomates)}> 1
+                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2" ${checked('Less than 2',result.numRoomates)}> Less than 2
+                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3" ${checked('Less than 3',result.numRoomates)}> Less than 3
+                    <input id="Roomate4" type="radio" name="Roomate" value="3+" ${checked('3+',result.numRoomates)}> 3+
                 </div>     
 
                 <div class="filters">
                     <label for="Culture" required>Culture (required input) :</label>
-                    <input id="Culture1" type="radio" name="Culture" value="Communal" checked="${preVal.culture['Communal']}"> Communal
-                    <input id="Culture2" type="radio" name="Culture" value="Private" checked="${preVal.culture['Private']}"> Private
+                    <input id="Culture1" type="radio" name="Culture" value="Communal" ${checked('Communal',result.culture)}> Communal
+                    <input id="Culture2" type="radio" name="Culture" value="Private" ${checked('Private',result.culture)}> Private
                 </div>
 
                 <button id="update" type="submit">Update</button>
@@ -92,28 +92,21 @@ function renderEdit(result) {
             <div class="js-upfail'"></div>
         </form>
             `
-                // add hover color
-                //chance cursor
 }
 
-/* ---------------------------------------DISPLAY DATA-------------------------------------------- */
+/* ---------------------------------------If value is true put a check on radio button-------------------------------------------- */
 function checked(input, result) {
-    console.log('this is input', input);
-    console.log('this is result', result);
     if (input === result) {
         return ('checked')
     }
-}
+};
 
-// If the value of the radio button is equl to the result.budget.val() then retrurn checked 
 
 
 /* ---------------------------------------DISPLAY DATA-------------------------------------------- */
 
 function displayData(data) {
-    // console.log(data);
     DATA.data = data.allusers;
-    // console.log(DATA.data);
     const showResults = DATA.data.map(item => {
         if (item._id === DATA.isEditing) {
             return renderEdit(item);

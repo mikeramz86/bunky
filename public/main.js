@@ -121,7 +121,7 @@ function displayData(data) {
 $('.js-results').on("click", ".js-update-bunky", function (e) {
     e.preventDefault();
 
-    // console.log('finding specific id', $(e.target).parent().attr("id"));
+
     DATA.isEditing = $(e.target).parent().attr("id");
 
     console.log(DATA.data);
@@ -155,38 +155,43 @@ $('.js-results').on("click", "#update", function (e) {
     console.log('this is form', $("form").attr("id"));
     console.log('test');
 
-    $.ajax({
-        url: `/users/` + bunkyId,
-        type: 'PUT',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            id: bunkyId,
-            FirstName: update_firstName,
-            LastName: update_lastName,
-            EmailAddress: update_email,
-            budget: update_budget,
-            numRoomates: update_numRoomates,
-            culture: update_culture
-        }),
-        success: function (data) {
-            if (data) {
-                console.log(data);
-                // callback(data);
-                return $(getUsers(displayData));
+    if (update_firstName === "" || update_lastName === "" || update_email === "") {
+            alert("Must fill out all required fields")
+    } else {
+
+        $.ajax({
+            url: `/users/` + bunkyId,
+            type: 'PUT',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                id: bunkyId,
+                FirstName: update_firstName,
+                LastName: update_lastName,
+                EmailAddress: update_email,
+                budget: update_budget,
+                numRoomates: update_numRoomates,
+                culture: update_culture
+            }),
+            success: function (data) {
+                if (data) {
+                    console.log(data);
+                    // callback(data);
+                    return $(getUsers(displayData));
+                }
+            },
+            error: (...rest) => {
+                $('.js-upfail').prepend(
+                    `
+                        <div class='upate-failure'>
+                            <p>update failed.</p>
+                            <p>please try again</p>
+                        </div>
+                    `
+                )
             }
-        },
-        error: (...rest) => {
-            $('.js-upfail').prepend(
-                `
-                    <div class='upate-failure'>
-                        <p>update failed.</p>
-                        <p>please try again</p>
-                    </div>
-                `
-            )
-        }
-    });
+        });
+    }
 
 });
 

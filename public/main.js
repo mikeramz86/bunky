@@ -6,6 +6,7 @@ const DATA = {
     isEditing: null
 };
 
+
 /* ---------------------------------------get Data from API-------------------------------------------- */
 function getUsers(callback) {
     const settings = {
@@ -44,7 +45,10 @@ function renderResult(result) {
 };
 
 function renderEdit(result) {
-    console.log(`checking for results:`,result._id);
+    // console.log(`checking for results:`,result._id);
+    // console.log('this is preval', preVal);
+    // console.log('this is budget', preVal.budget['one']);
+    console.log('this is result', result);
     return `
          <form id="${result._id}" class="editForm as-form result">
             <fieldset name="Update">
@@ -60,27 +64,26 @@ function renderEdit(result) {
                     <input class="update Email" value="${result.EmailAddress}" type="email" name='email' id='updateEmail' />
                 </div>
                 <div class="filters">
-                    <label for="budget" class "budget"  required>Budget (required input) :
-                        <input type="radio" name="budget" value="$1 - $500">
-                        <label for="contactChoice1">$1 - $500</label>
-                        <input id="budge1t" type="radio" name="budget" value="$500 - $1000"> $500 - $1000
-                        <input id="budget2" type="radio" name="budget" value="$1 - $500"> $1100 - $1500
-                        <input id="budget3" type="radio" name="budget" value="$1600+"> $1600+
-                    </label>
+                    <label for="budget" class "budget"  required>Budget (required input):             </label>
+                        <input id="budge1t" type="radio" name="budget" value="$100 - $500" ${checked('$1 - $500',result.budget)}> $1 - $500                     
+                        <input id="budge1t" type="radio" name="budget" value="$500 - $1000"${checked('$500 - $1000',result.budget)} > $500 - $1000
+                        <input id="budget2" type="radio" name="budget" value="$1000 - $1600" ${checked('$1000 - $1600',result.budget)}> $1100 - $1600
+                        <input id="budget3" type="radio" name="budget" value="$1600+" ${checked('$1600+',result.budget)}> $1600+
+      
                 </div>
 
                 <div class="filters">
                     <label for="roomates" required>Roomates (required input) :</label>
-                    <input id="Roomate1" type="radio" name="Roomate" value="1"> 1
-                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2"> Less than 2
-                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3"> Less than 3
-                    <input id="Roomate4" type="radio" name="Roomate" value="3+"> 3+
+                    <input id="Roomate1" type="radio" name="Roomate" value="check" checked=${preVal.numRoomates['1']}> 1
+                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2" checked=${preVal.numRoomates['Less than 2']}> Less than 2
+                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3" checked=${preVal.numRoomates['Less than 3']}> Less than 3
+                    <input id="Roomate4" type="radio" name="Roomate" value="3+" checked="${preVal.numRoomates['+3']}"> 3+
                 </div>     
 
                 <div class="filters">
                     <label for="Culture" required>Culture (required input) :</label>
-                    <input id="Culture1" type="radio" name="Culture" value="Communal"> Communal
-                    <input id="Culture2" type="radio" name="Culture" value="Private"> Private
+                    <input id="Culture1" type="radio" name="Culture" value="Communal" checked="${preVal.culture['Communal']}"> Communal
+                    <input id="Culture2" type="radio" name="Culture" value="Private" checked="${preVal.culture['Private']}"> Private
                 </div>
 
                 <button id="update" type="submit">Update</button>
@@ -93,8 +96,16 @@ function renderEdit(result) {
                 //chance cursor
 }
 
+/* ---------------------------------------DISPLAY DATA-------------------------------------------- */
+function checked(input, result) {
+    console.log('this is input', input);
+    console.log('this is result', result);
+    if (input === result) {
+        return ('checked')
+    }
+}
 
-
+// If the value of the radio button is equl to the result.budget.val() then retrurn checked 
 
 
 /* ---------------------------------------DISPLAY DATA-------------------------------------------- */

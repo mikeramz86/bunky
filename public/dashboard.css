@@ -28,6 +28,10 @@ nav {
   margin-right: 20px;
 }
 
+main button:hover {
+  background-color: #002F39; 
+}
+
 .homebtn button:hover {
   background-color: #80DC90;
 }

@@ -57,7 +57,7 @@ h2 {
 
 
 main {
-    display: block;
+    /* display: block; */
     position: absolute;
     margin-top: 50px;
     margin-left: auto;
@@ -189,7 +189,7 @@ a, a:visited, a:hover, a:active {
 
 .bunky {
     margin-top: 20px;
-    width: 700px;
+    width: 500px;
     /* margin-right: auto;
     margin-left: auto; */
 }

@@ -71,8 +71,8 @@ function renderEdit(result) {
                 <div class="filters">
                     <label for="roomates" required>Roomates (required input) :</label>
                     <input id="Roomate1" type="radio" name="Roomate" value="1" ${checked('1', result.numRoomates)}> 1
-                    <input id="Roomate2" type="radio" name="Roomate" value="Less than 2" ${checked('Less than 2', result.numRoomates)}> Less than 2
-                    <input id="Roomate3" type="radio" name="Roomate" value="Less than 3" ${checked('Less than 3', result.numRoomates)}> Less than 3
+                    <input id="Roomate2" type="radio" name="Roomate" value="2" ${checked('2', result.numRoomates)}> 2
+                    <input id="Roomate3" type="radio" name="Roomate" value="3" ${checked('3', result.numRoomates)}> 3
                     <input id="Roomate4" type="radio" name="Roomate" value="3+" ${checked('3+', result.numRoomates)}> 3+
                 </div>     
 

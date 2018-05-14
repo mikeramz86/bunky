@@ -55,6 +55,11 @@ h2 {
 
  }
 
+ p {
+     margin-left: 20px;
+     margin-right: 20px;
+ }
+
 
 main {
     /* display: block; */
@@ -67,6 +72,7 @@ main {
 
 .couches {
     background-image: url("./imgs/redchair.png");
+    background-position: 10%;
     height: 600px;
     background-position: left;
     background-repeat: no-repeat;
@@ -115,6 +121,7 @@ main {
     float: left;
     width: 100px;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .start{
@@ -134,9 +141,9 @@ main {
     text-align: center;
 }
 
-.btm {
+/* .btm {
     margin-top: 50px;
-}
+} */
 
 
 .mainb {
@@ -206,6 +213,7 @@ footer {
     height: 50px;
     text-align: center;
     padding: 20px;
+    font-size: 10px;
 }
 
 li {

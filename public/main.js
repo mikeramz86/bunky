@@ -32,7 +32,7 @@ function renderResult(result) {
                 <div class="accountInfo" id="${result._id}">
                     <div id="updateEmail" value="${result.EmailAddress}">${result.EmailAddress}</div>
                     <div id="updateBudget" value="${result.budget}">Budget: ${result.budget}</div>
-                    <div id="updateRoomates" value="${result.numRoomates}">Roomates: ${result.numRoomates}</div>
+                    <div id="updateRoomates" value="${result.numRoomates}">Roommates: ${result.numRoomates}</div>
                     <div id="updateCulture" value="${result.culture}">Culture: ${result.culture}</div>
                     <button class="js-update-bunky loginbtn">Update</button>
                     <button class="js-permanent-delete-bunky loginbtn" type="submit">Delete</button>
@@ -69,7 +69,7 @@ function renderEdit(result) {
                 </div>
 
                 <div class="filters">
-                    <label for="roomates" required>Roomates (required input) :</label>
+                    <label for="roomates" required>Roommates (required input) :</label>
                     <input id="Roomate1" type="radio" name="Roomate" value="1" ${checked('1', result.numRoomates)}> 1
                     <input id="Roomate2" type="radio" name="Roomate" value="2" ${checked('2', result.numRoomates)}> 2
                     <input id="Roomate3" type="radio" name="Roomate" value="3" ${checked('3', result.numRoomates)}> 3

@@ -63,8 +63,8 @@ function renderEdit(result) {
                     <label for="budget" class "budget"  required>Budget (required input):     </label>
                         <input id="budge1t" type="radio" name="budget" value="$1 - $500" ${checked('$1 - $500', result.budget)}> $1 - $500                     
                         <input id="budge1t" type="radio" name="budget" value="$500 - $1000"${checked('$500 - $1000', result.budget)} > $500 - $1000
-                        <input id="budget2" type="radio" name="budget" value="$1000 - $1600" ${checked('$1000 - $1600', result.budget)}> $1100 - $1600
-                        <input id="budget3" type="radio" name="budget" value="$1600+" ${checked('$1600+', result.budget)}> $1600+
+                        <input id="budget2" type="radio" name="budget" value="$1000 - $1500" ${checked('$1000 - $1500', result.budget)}> $1000 - $1500
+                        <input id="budget3" type="radio" name="budget" value="$1500+" ${checked('$1500+', result.budget)}> $1500+
       
                 </div>
 

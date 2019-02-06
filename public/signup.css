@@ -71,7 +71,6 @@ fieldset {
 }
 .as-form .type {
   display: block;
-  /* width: 300px; */
   height: auto;
   font-size: 18px;
   text-align: left;

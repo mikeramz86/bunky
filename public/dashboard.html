@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>bunky: a place to meet your roommate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="sylesheet" type="text/css" href="resp-grid.css">
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="dashboard.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="sylesheet" type="text/css" href="resp-grid.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fredoka+One"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="dashboard.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div class="row">
-        <nav role="navigation" clas="col-12">
-            <div class="logo">
-                <h1>
-                    <a href="index.html">bunky</a>
-                </h1>
-            </div>
-            <div class="menu">
-                <a href="addbunky.html">Add bunky</a>
-            </div>
-        </nav>
-     </div>
-     
-     <div class="row">
-        <main role="main" class="add-bunky col-12">
-            <form>
-                <button class="homebtn" id="myBtn" type="submit" formaction="addbunky.html">Add bunky</button>
-            </form>
-        </main>
-
-        <div class="js-results col-12" aria-live="assertive">results</div>
+      <nav role="navigation" clas="col-12">
+        <div class="logo">
+          <h1>
+            <a href="index.html">bunky</a>
+          </h1>
+        </div>
+        <div class="menu">
+          <a href="addbunky.html">Add bunky</a>
+        </div>
+      </nav>
     </div>
 
+    <div class="row">
+      <main role="main" class="add-bunky col-12">
+        <form>
+          <button
+            class="homebtn"
+            id="myBtn"
+            type="submit"
+            formaction="addbunky.html"
+          >
+            Add bunky
+          </button>
+        </form>
+      </main>
+
+      <div class="js-results col-12" aria-live="assertive">results</div>
+    </div>
 
     <script type="text/javascript" src="main.js"></script>
-    <!-- <script type="text/javascript" src="users.js"></script> -->
-</body>
-
+  </body>
 </html>

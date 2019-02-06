@@ -38,7 +38,6 @@ userSchema.methods.validatePassword = function(password) {
 userSchema.statics.hashPassword = function (password) {
   return bcrypt.hash(password, 10);
 };
-// note that all instance methods and virtual properties on our
-// schema must be defined *before* we make the call to `.model`.
+
 const User = mongoose.model('User', userSchema);
 module.exports = {User};
